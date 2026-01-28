@@ -5,8 +5,19 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Zaras Hälsofokus</title>
+		<meta name="description" content="Zaras Hälsofokus är specialist på LPG-behandlingar i Stockholm. Personliga behandlingar för celluliter, cirkulation och välmående. Boka idag!" />
+		<meta name="keywords" content="Hälsa, Välmående, Kost, Träning, Mental hälsa, Livsstil, LPG, LPG massage, Insculpt, Insculpt Chair " />
+		<meta name="author" content="Zara" />
+		<meta name="robots" content="index, follow" />
+		<meta name="language" content="Swedish" />
+		<meta name="googlebot" content="index, follow" />
+		<meta name="bingbot" content="index, follow" />
+		<meta name="yandexbot" content="index, follow" />
+		<meta property="og:title" content="Zaras Hälsofokus" />
+		<meta property="og:description" content="Zaras Hälsofokus är specialist på LPG-behandlingar i Stockholm. Personliga behandlingar för celluliter, cirkulation och välmående. Boka idag!" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://zarashalsofokus.com" />
 	</head>
 	<body>
 		<slot />
@@ -14,10 +25,12 @@
 </html>
 
 <style is:global>
-	@import '../styles/global.css'
+	@import '../styles/global.css';
+	@import 'tailwindcss';
+	@import 'tailwind-animations';
 	html,
 	body {
-		baground: #000;
+		background: #070707;
 		color: white;
 		font-family:
 			system-ui;

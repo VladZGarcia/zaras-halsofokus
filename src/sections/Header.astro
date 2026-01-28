@@ -1,0 +1,43 @@
+---
+import "../styles/hamburger.css";
+import HamburgerMenu from "../components/HamburgerMenu.astro";
+---
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
+
+    if (hamburger && navMenu) {
+      hamburger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+    }
+  });
+</script>
+
+<header>
+  <div class="text-white py-4">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <img
+        src="/zaras-halsofokus-logo.png"
+        alt="zaras-halsofokus-logo"
+        class="w-40 h-16 animate-fade-in-up"
+      />
+
+      <HamburgerMenu />
+
+      <!-- Navigation Menu -->
+      <nav id="nav-menu" class="nav-menu">
+        <ul
+          class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6"
+        >
+          <li><a href="#home" class="hover:text-gray-400">Hem</a></li>
+          <li><a href="#services" class="hover:text-gray-400">Tjänster</a></li>
+          <li><a href="#about" class="hover:text-gray-400">Om oss</a></li>
+          <li><a href="#contact" class="hover:text-gray-400">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>

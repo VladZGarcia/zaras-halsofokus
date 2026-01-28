@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.moving-bg {
+  background: linear-gradient(-45deg, #5881e0, #0562f7, #1e1b4b, #022b64);
+  background-size: 400% 400%;
+  animation: moveGradient 10s ease infinite;
+}
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 80px;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10;
+}
