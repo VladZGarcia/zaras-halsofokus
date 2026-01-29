@@ -13,9 +13,9 @@
 }
 
 .moving-bg {
-  background: linear-gradient(-45deg, #5881e0, #0562f7, #1e1b4b, #022b64);
+  background: linear-gradient(-45deg, #bfb6ad, #b1a69b, #dcd8d4, #a09281);
   background-size: 400% 400%;
-  animation: moveGradient 10s ease infinite;
+  animation: moveGradient 15s ease infinite;
 }
 
 .hero-section {
