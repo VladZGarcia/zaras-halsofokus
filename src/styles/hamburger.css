@@ -38,12 +38,18 @@
   display: block;
 }
 
-/*  @media (min-width: 768px) {
+@media (min-width: 768px) {
   .nav-menu {
     position: static;
-    background: none;
+    top: auto;
+    right: auto;
+    width: auto;
+    height: auto;
+    background: transparent;
     padding: 0;
-    max-height: none;
-    display: none
-  } 
-} */
+    overflow: visible;
+    transition: none;
+    z-index: 40;
+    display: block;
+  }
+}
