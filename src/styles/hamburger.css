@@ -21,28 +21,35 @@
 }
 
 .nav-menu {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  right: 0;
-  background: rgba(15, 23, 42, 0.95);
+  position: fixed;
+  top: 90px;
+  right: -250px;
+  width: 150px;
+  height: auto;
+  background: rgba(15, 23, 42, 0.98);
   padding: 20px;
-  max-height: 0;
-  overflow: hidden;
-  visibility: hidden;
-  
+  overflow-y: auto;
+  transition: right 0.3s ease;
+  z-index: 40;
 }
 
 .nav-menu.active {
-  max-height: 300px;
-  visibility: visible;
+  right: 0;
+  display: block;
 }
 
 @media (min-width: 768px) {
   .nav-menu {
     position: static;
-    background: none;
+    top: auto;
+    right: auto;
+    width: auto;
+    height: auto;
+    background: transparent;
     padding: 0;
-    max-height: none;
+    overflow: visible;
+    transition: none;
+    z-index: 40;
+    display: block;
   }
 }

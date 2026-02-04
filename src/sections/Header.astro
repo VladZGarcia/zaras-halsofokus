@@ -1,36 +1,45 @@
 ---
 import "../styles/hamburger.css";
-import HamburgerMenu from "../components/HamburgerMenu.astro";
 ---
 
 <script>
+  // Toggle navigation menu on hamburger click
   document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("nav-menu");
 
-    if (hamburger && navMenu) {
-      hamburger.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-      });
-    }
+    if (!hamburger || !navMenu) return;
+    hamburger.addEventListener("click", () => {
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    });
   });
 </script>
 
-<header>
+<header
+  class="fixed top-0 left-0 right-0 z-50 w-full bg-linear-to-b from-black/40 to-transparent"
+>
   <div class="text-white py-4">
-    <div class="container mx-auto px-4 flex justify-between items-center">
-      <img
-        src="/zaras-halsofokus-logo.png"
-        alt="zaras-halsofokus-logo"
-        class="w-40 h-16 animate-fade-in-up"
-      />
+    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+      <a href="https://www.zarashalsofokus.com">
+        <img
+          src="/zaras-halsofokus-logo.png"
+          alt="zaras-halsofokus-logo"
+          class="w-40 h-16 animate-fade-in-up brightness-100 invert"
+        />
+      </a>
 
-      <HamburgerMenu />
+      <!-- Hamburger Menu Button -->
+      <button id="hamburger" class="md:hidden flex flex-col cursor-pointer">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
 
       <!-- Navigation Menu -->
       <nav id="nav-menu" class="nav-menu">
         <ul
-          class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6"
+          class="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0 items-center"
         >
           <li><a href="#home" class="hover:text-gray-400">Hem</a></li>
           <li><a href="#services" class="hover:text-gray-400">Tjänster</a></li>
