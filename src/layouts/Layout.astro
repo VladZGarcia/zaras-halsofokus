@@ -1,5 +1,6 @@
 ---
-// Base layout without global background video
+import Header from "../sections/Header.astro";
+import Footer from "../sections/Footer.astro";
 ---
 
 <!doctype html>
@@ -33,9 +34,11 @@
     <meta property="og:url" content="https://zarashalsofokus.com" />
   </head>
   <body>
+    <Header />
     <div class="page-content">
       <slot />
     </div>
+    <Footer />
   </body>
 </html>
 

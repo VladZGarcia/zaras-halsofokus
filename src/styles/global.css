@@ -74,6 +74,12 @@ body {
   padding-top: var(--header-height);
 }
 
+/* Helper: make a section's background extend under the fixed header */
+.under-header {
+  margin-top: calc(-1 * var(--header-height));
+  padding-top: var(--header-height);
+}
+
 .services-section {
   min-height: 100vh;
   display: grid;
