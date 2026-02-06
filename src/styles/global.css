@@ -76,23 +76,102 @@ body {
 
 .services-section {
   min-height: 100vh;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: center;
   position: relative;
-  background: #bfb6ad;
+  background: #e6a35f;
+  z-index: 2;
+  /* Responsive spacing between text and image */
+  --services-gap: clamp(16px, 4vw, 64px);
+  --services-gap-right: clamp(8px, 2vw, 32px);
+}
+
+/* Left-side background image for Services section */
+.services-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background-image: url('/pictures/soffa-champange.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+/* Subtle gradient overlay to improve readability */
+.services-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0));
   z-index: 2;
 }
 
-.lpg-section,
+/* Position the services text block on the right side */
+.services-content {
+  /* Place content in the right grid column and center it */
+  grid-column: 2;
+  justify-self: center;
+  width: min(48rem, calc(100% - var(--services-gap) - var(--services-gap-right)));
+  padding-left: var(--services-gap);
+  padding-right: var(--services-gap-right);
+  text-align: center;
+  color: #1a1a1a;
+}
+
+/* Responsive tweaks: narrower image on small screens */
+@media (max-width: 1020px) {
+  .services-section {
+    grid-template-columns: 1fr;
+  }
+  .services-section::before {
+    width: 100%;
+    background-position: center;
+  }
+  .services-section::after {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.35);
+  }
+  .services-content {
+    grid-column: 1;
+    justify-self: center;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: min(40rem, calc(100% - 2rem));
+    color: #ffffff;
+  }
+}
+
+
 .insculpt-section {
   min-height: 100vh;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-  justify-content: center;
   position: relative;
   background: #bfb6ad;
   z-index: 2;
+  --services-gap: clamp(16px, 4vw, 64px);
+  --services-gap-right: clamp(8px, 2vw, 32px);
+}
+
+.lpg-section {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  position: relative;
+  background: #2f2011;
+  z-index: 2;
+  --services-gap: clamp(16px, 4vw, 64px);
+  --services-gap-right: clamp(8px, 2vw, 32px);
 }
 
 .hero-video {
@@ -122,5 +201,110 @@ body {
 .insculpt-content {
   position: relative;
   z-index: 3;
+}
+
+/* LPG: left-side image by default */
+.lpg-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  background-image: url('/pictures/soffa-ZH.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.lpg-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0));
+  z-index: 2;
+}
+
+.lpg-content {
+  grid-column: 1;
+  justify-self: center;
+  width: min(48rem, calc(100% - var(--services-gap) - var(--services-gap-right)));
+  padding-left: var(--services-gap-right);
+  padding-right: var(--services-gap);
+  text-align: center;
+  color: #ffffff;
+}
+
+@media (max-width: 1020px) {
+  .lpg-section { grid-template-columns: 1fr; }
+  .lpg-section::before { left: 0; right: 0; width: 100%; background-position: center; }
+  .lpg-section::after { left: 0; right: 0; width: 100%; background: rgba(0,0,0,0.35); }
+  .lpg-content {
+    grid-column: 1;
+    justify-self: center;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: min(40rem, calc(100% - 2rem));
+    color: #ffffff;
+  }
+}
+
+/* Insculpt: image left by default, supports image-right modifier */
+.insculpt-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background-image: url('/pictures/guldspegel.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.insculpt-section::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0));
+  z-index: 2;
+}
+
+.insculpt-content {
+  grid-column: 2;
+  justify-self: center;
+  width: min(48rem, calc(100% - var(--services-gap) - var(--services-gap-right)));
+  padding-left: var(--services-gap);
+  padding-right: var(--services-gap-right);
+  text-align: center;
+  color: #1a1a1a;
+}
+
+/* Image on the right variant */
+.insculpt-section.image-right::before { left: auto; right: 0; }
+.insculpt-section.image-right::after { left: auto; right: 0; background: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0)); }
+.insculpt-section.image-right .insculpt-content { grid-column: 1; }
+
+@media (max-width: 1020px) {
+  .insculpt-section { grid-template-columns: 1fr; }
+  .insculpt-section::before { width: 100%; background-position: center; }
+  .insculpt-section::after { width: 100%; background: rgba(0,0,0,0.55); }
+  .insculpt-content {
+    grid-column: 1;
+    justify-self: center;
+    margin: 0 auto;
+    padding: 0 1rem;
+    width: min(40rem, calc(100% - 2rem));
+    color: #ffffff;
+  }
 }
 
