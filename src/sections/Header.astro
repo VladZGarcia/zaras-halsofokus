@@ -7,12 +7,22 @@ import "../styles/hamburger.css";
   document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("nav-menu");
-    const servicesLink = document.querySelector('a[href="#services"]');
-    const lpgLink = document.querySelector('a[href="#lpg"]');
-    const insculptLink = document.querySelector('a[href="#insculpt"]');
+    const homeLinks = document.querySelectorAll(
+      'a[href="/#home"], a[href="#home"]',
+    );
+    const servicesLinks = document.querySelectorAll(
+      'a[href="/#services"], a[href="#services"]',
+    );
+    const lpgLinks = document.querySelectorAll(
+      'a[href="/#lpg"], a[href="#lpg"]',
+    );
+    const insculptLinks = document.querySelectorAll(
+      'a[href="/#insculpt"], a[href="#insculpt"]',
+    );
     const servicesSection = document.getElementById("services");
     const lpgSection = document.getElementById("lpg");
     const insculptSection = document.getElementById("insculpt");
+    const homeSection = document.getElementById("home");
 
     if (!hamburger || !navMenu) return;
     hamburger.addEventListener("click", () => {
@@ -20,24 +30,45 @@ import "../styles/hamburger.css";
       navMenu.classList.toggle("active");
     });
 
-    // Ensure in-container smooth scroll to Services inside snap container
-    if (servicesLink && servicesSection) {
-      servicesLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        servicesSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
+    // Smooth scroll on homepage; navigate on other pages
+    const onHome = location && location.pathname === "/";
+    if (onHome && homeSection) {
+      homeLinks.forEach((link) =>
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          homeSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }),
+      );
     }
-    if (lpgLink && lpgSection) {
-      lpgLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        lpgSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
+    if (onHome && servicesSection) {
+      servicesLinks.forEach((link) =>
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          servicesSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }),
+      );
     }
-    if (insculptLink && insculptSection) {
-      insculptLink.addEventListener("click", (e) => {
-        e.preventDefault();
-        insculptSection.scrollIntoView({ behavior: "smooth", block: "start" });
-      });
+    if (onHome && lpgSection) {
+      lpgLinks.forEach((link) =>
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          lpgSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }),
+      );
+    }
+    if (onHome && insculptSection) {
+      insculptLinks.forEach((link) =>
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          insculptSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }),
+      );
     }
   });
 </script>
@@ -69,11 +100,11 @@ import "../styles/hamburger.css";
         <ul
           class="flex flex-col md:space-x-6 md:space-y-4 space-y-0 items-center"
         >
-          <li><a href="#home" class="hover:text-gray-400">Hem</a></li>
-          <li><a href="#services" class="hover:text-gray-400">Tjänster</a></li>
-          <li><a href="#lpg" class="hover:text-gray-400">LPG</a></li>
-          <li><a href="#insculpt" class="hover:text-gray-400">Insculpt</a></li>
-          <li><a href="#about" class="hover:text-gray-400">Om oss</a></li>
+          <li><a href="/#home" class="hover:text-gray-400">Hem</a></li>
+          <li><a href="/#services" class="hover:text-gray-400">Tjänster</a></li>
+          <li><a href="/#lpg" class="hover:text-gray-400">LPG</a></li>
+          <li><a href="/#insculpt" class="hover:text-gray-400">Insculpt</a></li>
+          <li><a href="/aboutUs" class="hover:text-gray-400">Om oss</a></li>
           <li><a href="#contact" class="hover:text-gray-400">Kontakt</a></li>
           <ul
             class="flex flex-col md:flex-row md:justify-center md:space-x-6 space-y-4 md:space-y-0 items-center"
