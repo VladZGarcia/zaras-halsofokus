@@ -7,30 +7,54 @@ import "../styles/hamburger.css";
   document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("nav-menu");
+    const servicesLink = document.querySelector('a[href="#services"]');
+    const lpgLink = document.querySelector('a[href="#lpg"]');
+    const insculptLink = document.querySelector('a[href="#insculpt"]');
+    const servicesSection = document.getElementById("services");
+    const lpgSection = document.getElementById("lpg");
+    const insculptSection = document.getElementById("insculpt");
 
     if (!hamburger || !navMenu) return;
     hamburger.addEventListener("click", () => {
       hamburger.classList.toggle("active");
       navMenu.classList.toggle("active");
     });
+
+    // Ensure in-container smooth scroll to Services inside snap container
+    if (servicesLink && servicesSection) {
+      servicesLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        servicesSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+    if (lpgLink && lpgSection) {
+      lpgLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        lpgSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+    if (insculptLink && insculptSection) {
+      insculptLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        insculptSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
   });
 </script>
 
-<header
-  class="fixed top-0 left-0 right-0 z-50 w-full bg-linear-to-b from-black/40 to-transparent"
->
+<header class="fixed top-0 left-0 right-0 z-50 w-full bg-transparent">
   <div class="text-white py-4">
     <div class="container mx-auto px-4 py-2 flex justify-between items-center">
       <a href="https://www.zarashalsofokus.com">
         <img
           src="/zaras-halsofokus-logo.png"
           alt="zaras-halsofokus-logo"
-          class="w-40 h-16 animate-fade-in-up brightness-100 invert"
+          class="w-56 h-20 md:w-64 md:h-24 animate-fade-in-up brightness-100 invert"
         />
       </a>
 
       <!-- Hamburger Menu Button -->
-      <button id="hamburger" class="md:hidden flex flex-col cursor-pointer">
+      <button id="hamburger" class="flex flex-col cursor-pointer">
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
         <span class="hamburger-line"></span>
@@ -39,12 +63,18 @@ import "../styles/hamburger.css";
       <!-- Navigation Menu -->
       <nav id="nav-menu" class="nav-menu">
         <ul
-          class="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0 items-center"
+          class="flex flex-col md:space-x-6 md:space-y-4 space-y-0 items-center"
         >
           <li><a href="#home" class="hover:text-gray-400">Hem</a></li>
           <li><a href="#services" class="hover:text-gray-400">Tjänster</a></li>
+          <li><a href="#lpg" class="hover:text-gray-400">LPG</a></li>
+          <li><a href="#insculpt" class="hover:text-gray-400">Insculpt</a></li>
           <li><a href="#about" class="hover:text-gray-400">Om oss</a></li>
           <li><a href="#contact" class="hover:text-gray-400">Kontakt</a></li>
+          <ul
+            class="flex flex-col md:flex-row md:justify-center md:space-x-6 space-y-4 md:space-y-0 items-center"
+          >
+          </ul>
         </ul>
       </nav>
     </div>

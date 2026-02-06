@@ -9,7 +9,7 @@
 }
 
 #hamburger.active .hamburger-line:nth-child(1) {
-  transform: rotate(45deg) translate(10px, 10px);
+  transform: rotate(45deg) translate(11px, 11px);
 }
 
 #hamburger.active .hamburger-line:nth-child(2) {
@@ -17,28 +17,40 @@
 }
 
 #hamburger.active .hamburger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -7px);
+  transform: rotate(-45deg) translate(7px, -8px);
 }
 
 .nav-menu {
-  position: fixed;
-  top: 90px;
-  right: -250px;
-  width: 150px;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 200px;
   height: auto;
-  background: rgba(15, 23, 42, 0.98);
-  padding: 20px;
+  background: rgba(4, 7, 12, 0.4);
+  padding: 12px;
   overflow-y: auto;
-  transition: right 0.3s ease;
-  z-index: 40;
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.35);
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 200ms ease, transform 200ms ease;
+  pointer-events: none;
+  z-index: 50;
 }
 
 .nav-menu.active {
-  right: 0;
-  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
-@media (min-width: 768px) {
+/* Position the dropdown relative to the header container */
+header .container {
+  position: relative;
+}
+
+/* @media (min-width: 768px) {
   .nav-menu {
     position: static;
     top: auto;
@@ -52,4 +64,4 @@
     z-index: 40;
     display: block;
   }
-}
+} */
