@@ -25,9 +25,29 @@ import "../styles/hamburger.css";
     const homeSection = document.getElementById("home");
 
     if (!hamburger || !navMenu) return;
+    const closeMenu = () => {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    };
     hamburger.addEventListener("click", () => {
       hamburger.classList.toggle("active");
       navMenu.classList.toggle("active");
+    });
+
+    // Close when clicking outside the menu or hamburger
+    document.addEventListener("click", (e) => {
+      if (!navMenu.classList.contains("active")) return;
+      const target = e.target as HTMLElement;
+      if (!navMenu.contains(target) && !hamburger.contains(target)) {
+        closeMenu();
+      }
+    });
+
+    // Close on ESC key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && navMenu.classList.contains("active")) {
+        closeMenu();
+      }
     });
 
     // Smooth scroll on homepage; navigate on other pages
@@ -37,6 +57,7 @@ import "../styles/hamburger.css";
         link.addEventListener("click", (e) => {
           e.preventDefault();
           homeSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          closeMenu();
         }),
       );
     }
@@ -48,6 +69,7 @@ import "../styles/hamburger.css";
             behavior: "smooth",
             block: "start",
           });
+          closeMenu();
         }),
       );
     }
@@ -56,6 +78,7 @@ import "../styles/hamburger.css";
         link.addEventListener("click", (e) => {
           e.preventDefault();
           lpgSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          closeMenu();
         }),
       );
     }
@@ -67,9 +90,16 @@ import "../styles/hamburger.css";
             behavior: "smooth",
             block: "start",
           });
+          closeMenu();
         }),
       );
     }
+
+    // Also close when any nav link is clicked (for non-home navigation)
+    const allNavLinks = navMenu.querySelectorAll("a[href]");
+    allNavLinks.forEach((link) =>
+      link.addEventListener("click", () => closeMenu()),
+    );
   });
 </script>
 
