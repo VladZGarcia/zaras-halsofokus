@@ -1,5 +1,88 @@
-<footer class="bg-gray-800 text-white py-6">
-    <div class="container mx-auto px-4 text-center">
-        <p>&copy; {new Date().getFullYear()} Zaras Hälsofokus. Alla rättigheter förbehållna.</p>
+<footer class="bg-gray-800 text-white py-8">
+  <div
+    class="container mx-auto px-4 flex flex-col sm:flex-row lg:items-start items-center justify-between gap-6"
+  >
+    <!-- Left: Logo and blurb -->
+    <div
+      class="flex flex-col items-center lg:flex-row lg:items-start gap-4 md:flex-1 md:pr-6"
+    >
+      <a
+        href="https://www.zarashalsofokus.com"
+        class="inline-block"
+        aria-label="Zaras Hälsofokus startsida"
+      >
+        <span
+          class="inline-flex items-center rounded-lg bg-black/10 hover:bg-black/20 p-2 h-20 sm:h-24 md:h-32 lg:h-36 xl:h-40"
+        >
+          <img
+            src="/zaras-halsofokus-logo.png"
+            alt="zaras-halsofokus-logo"
+            class="block h-full w-auto object-contain brightness-100 invert"
+          />
+        </span>
+      </a>
+      <p
+        class="flex-1 text-left text-sm sm:text-base md:text-lg lg:text-xl opacity-90 md:leading-relaxed lg:leading-normal md:max-w-none"
+      >
+        Zaras Hälsofokus är en specialistklinik i Stockholm för LPG-behandling,
+        Insculpt Chair och Insculpt Kropp – med fokus på personliga
+        behandlingar, synliga resultat och ökat välmående.
+      </p> 
     </div>
+
+    <!-- Right: Quick contact -->
+    <div class="items-center w-auto">
+      <div class="flex flex-col gap-3 mt-3">
+        <h2 class="text-center sm:text-lg font-semibold">
+          Kontakta oss direkt
+        </h2>
+        <a
+          href="tel:+46704042809"
+          class="inline-flex items-center gap-2 bg-black/10 hover:bg-black/30 text-white px-4 py-2 rounded-full transition"
+          aria-label="Ring oss"
+        >
+          <span aria-hidden="true">📞</span>
+          <span>+46 70 404 28 09</span>
+        </a>
+        <a
+          href="mailto:info@zarashalsofokus.com"
+          class="inline-flex items-center gap-2 bg-black/10 hover:bg-black/30 text-white px-4 py-2 rounded-full transition"
+          aria-label="Mejla oss"
+        >
+          <span aria-hidden="true">✉️</span>
+          <span>info@zarashalsofokus.com</span>
+        </a>
+      </div>
+      <div class="mt-3">
+        <a
+          href="https://www.google.com/maps/place/Zaras+H%C3%A4lsofokus/@59.3423314,18.0582986,19.43z/data=!4m14!1m7!3m6!1s0x465f9de696c30013:0x7b727d5ade049d09!2sZaras+H%C3%A4lsofokus!8m2!3d59.3425214!4d18.0578779!16s%2Fg%2F11sm7p3m_6!3m5!1s0x465f9de696c30013:0x7b727d5ade049d09!8m2!3d59.3425214!4d18.0578779!16s%2Fg%2F11sm7p3m_6?hl=sv&entry=ttu&g_ep=EgoyMDI2MDIwNC4wIKXMDSoASAFQAw%3D%3D"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 bg-black/10 hover:bg-black/30 text-white px-4 py-2 rounded-full transition"
+          aria-label="Öppna Zaras Hälsofokus i Google Maps"
+        >
+          <svg
+            aria-hidden="true"
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M10 18a1 1 0 01-.832-.445C7.124 14.412 4 10.43 4 7a6 6 0 1112 0c0 3.43-3.124 7.412-5.168 10.555A1 1 0 0110 18zm0-10a2 2 0 100 4 2 2 0 000-4z"
+              clip-rule="evenodd"></path>
+          </svg>
+          <span>Rehnsgatan 24, Stockholm</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 mt-6">
+    <div
+      class="border-t border-white/15 pt-4 text-xs sm:text-sm opacity-80 text-center"
+    >
+      &copy; {new Date().getFullYear()} Zaras Hälsofokus. Alla rättigheter förbehållna.
+    </div>
+  </div>
 </footer>
