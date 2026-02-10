@@ -80,45 +80,79 @@ body {
   padding-top: var(--header-height);
 }
 
-.services-section {
+/* Shared two-column split layout for image/text sections */
+.split-section {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   position: relative;
-  background: #e6a35f;
   z-index: 2;
-  /* Responsive spacing between text and image */
-  --services-gap: clamp(16px, 4vw, 64px);
-  --services-gap-right: clamp(8px, 2vw, 32px);
 }
 
-/* Left-side background image for Services section */
-.services-section::before {
+@media (max-width: 768px) {
+  .split-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Shared image/overlay pseudo elements with CSS variables */
+.image-section::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
   height: 100%;
-  width: 50%;
-  background-image: url('/pictures/soffa-champange.JPG');
+  width: var(--image-width, 50%);
+  left: var(--image-left, 0);
+  right: var(--image-right, auto);
+  background-image: var(--image-url);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   z-index: 1;
 }
 
-/* Subtle gradient overlay to improve readability */
-.services-section::after {
+.image-section::after {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
   height: 100%;
-  width: 50%;
-  background: linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0));
+  width: var(--image-width, 50%);
+  left: var(--image-left, 0);
+  right: var(--image-right, auto);
+  background: var(--overlay-gradient, linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0)));
   z-index: 2;
 }
+
+/* Mobile: make image/overlay span full width and use per-section overlay color */
+@media (max-width: 768px) {
+  .image-section::before,
+  .image-section::after {
+    width: 100%;
+    left: 0;
+    right: 0;
+    background-position: center;
+  }
+  .image-section::after {
+    background: var(--overlay-small, rgba(0, 0, 0, 0.35));
+  }
+}
+
+.services-section {
+  background: #e6a35f;
+  /* Responsive spacing between text and image */
+  --services-gap: clamp(16px, 4vw, 64px);
+  --services-gap-right: clamp(8px, 2vw, 32px);
+  /* Shared image/overlay variables */
+  --image-left: 0;
+  --image-right: auto;
+  --image-width: 50%;
+  --image-url: url('/pictures/soffa-champange.JPG');
+  --overlay-gradient: linear-gradient(to right, rgba(0,0,0,0.45), rgba(0,0,0,0));
+  --overlay-small: rgba(0, 0, 0, 0.35);
+}
+
+/* (Replaced by shared .image-section::before/::after) */
 
 /* Position the services text block on the right side */
 .services-content {
@@ -133,18 +167,7 @@ body {
 }
 
 /* Responsive tweaks: narrower image on small screens */
-@media (max-width: 1020px) {
-  .services-section {
-    grid-template-columns: 1fr;
-  }
-  .services-section::before {
-    width: 100%;
-    background-position: center;
-  }
-  .services-section::after {
-    width: 100%;
-    background: rgba(0, 0, 0, 0.35);
-  }
+@media (max-width: 768px) {
   .services-content {
     grid-column: 1;
     justify-self: center;
@@ -157,27 +180,29 @@ body {
 
 
 .insculpt-section {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  position: relative;
   background: #bfb6ad;
-  z-index: 2;
   --services-gap: clamp(16px, 4vw, 64px);
   --services-gap-right: clamp(8px, 2vw, 32px);
+  /* Shared image/overlay variables */
+  --image-left: 0;
+  --image-right: auto;
+  --image-width: 50%;
+  --image-url: url('/pictures/guldspegel.JPG');
+  --overlay-gradient: linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0));
+  --overlay-small: rgba(0, 0, 0, 0.55);
 }
 
 .lpg-section {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  position: relative;
   background: #2f2011;
-  z-index: 2;
   --services-gap: clamp(16px, 4vw, 64px);
   --services-gap-right: clamp(8px, 2vw, 32px);
+  /* Shared image/overlay variables */
+  --image-left: auto;
+  --image-right: 0;
+  --image-width: 50%;
+  --image-url: url('/pictures/soffa-ZH.JPG');
+  --overlay-gradient: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0));
+  --overlay-small: rgba(0, 0, 0, 0.35);
 }
 
 .hero-video {
@@ -209,31 +234,32 @@ body {
   z-index: 3;
 }
 
-/* LPG: left-side image by default */
-.lpg-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 50%;
-  background-image: url('/pictures/soffa-ZH.JPG');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
+/* Shared content sizing and padding for split sections */
+.split-content {
+  justify-self: center;
+  width: min(48rem, calc(100% - var(--services-gap) - var(--services-gap-right)));
+  padding-left: var(--services-gap);
+  padding-right: var(--services-gap-right);
+  padding-top: clamp(16px, 4vw, 48px);
+  padding-bottom: clamp(16px, 4vw, 48px);
+  text-align: center;
 }
 
-.lpg-section::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  width: 50%;
-  background: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0));
-  z-index: 2;
+/* LPG content uses mirrored padding to balance spacing when on the left */
+.lpg-content.split-content {
+  padding-left: var(--services-gap-right);
+  padding-right: var(--services-gap);
 }
+
+/* Mobile: ensure vertical padding is present even when section overrides set horizontal padding */
+@media (max-width: 768px) {
+  .split-content {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* (Replaced by shared .image-section::before/::after) */
 
 .lpg-content {
   grid-column: 1;
@@ -246,9 +272,6 @@ body {
 }
 
 @media (max-width: 1020px) {
-  .lpg-section { grid-template-columns: 1fr; }
-  .lpg-section::before { left: 0; right: 0; width: 100%; background-position: center; }
-  .lpg-section::after { left: 0; right: 0; width: 100%; background: rgba(0,0,0,0.35); }
   .lpg-content {
     grid-column: 1;
     justify-self: center;
@@ -260,30 +283,7 @@ body {
 }
 
 /* Insculpt: image left by default, supports image-right modifier */
-.insculpt-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 50%;
-  background-image: url('/pictures/guldspegel.JPG');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
-}
-
-.insculpt-section::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 50%;
-  background: linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0));
-  z-index: 2;
-}
+/* (Replaced by shared .image-section::before/::after) */
 
 .insculpt-content {
   grid-column: 2;
@@ -296,14 +296,10 @@ body {
 }
 
 /* Image on the right variant */
-.insculpt-section.image-right::before { left: auto; right: 0; }
-.insculpt-section.image-right::after { left: auto; right: 0; background: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0)); }
-.insculpt-section.image-right .insculpt-content { grid-column: 1; }
+.insculpt-section.image-right, .services-section.image-right { --image-left: auto; --image-right: 0; --overlay-gradient: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0)); }
+.insculpt-section.image-right .insculpt-content, .services-section.image-right .services-content { grid-column: 1; }
 
-@media (max-width: 1020px) {
-  .insculpt-section { grid-template-columns: 1fr; }
-  .insculpt-section::before { width: 100%; background-position: center; }
-  .insculpt-section::after { width: 100%; background: rgba(0,0,0,0.55); }
+@media (max-width: 768px) {
   .insculpt-content {
     grid-column: 1;
     justify-self: center;
