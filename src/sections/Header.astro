@@ -7,6 +7,7 @@ import "../styles/hamburger.css";
   document.addEventListener("DOMContentLoaded", () => {
     const hamburger = document.getElementById("hamburger");
     const navMenu = document.getElementById("nav-menu");
+    const headerCta = document.getElementById("header-cta");
     const homeLinks = document.querySelectorAll(
       'a[href="/#home"], a[href="#home"]',
     );
@@ -52,6 +53,34 @@ import "../styles/hamburger.css";
 
     // Smooth scroll on homepage; navigate on other pages
     const onHome = location && location.pathname === "/";
+    // Show CTA in header only when not viewing the hero section (#home)
+    if (headerCta) {
+      const showCta = () => headerCta.classList.remove("hidden");
+      const hideCta = () => headerCta.classList.add("hidden");
+      if (onHome && homeSection && "IntersectionObserver" in window) {
+        // Initialize based on current viewport
+        const rect = homeSection.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (inView) hideCta();
+        else showCta();
+
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (!entry) return;
+            if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
+              hideCta();
+            } else {
+              showCta();
+            }
+          },
+          { threshold: [0, 0.2, 0.5, 1] },
+        );
+        observer.observe(homeSection);
+      } else {
+        // On non-home pages (no hero), always show CTA
+        showCta();
+      }
+    }
     if (onHome && homeSection) {
       homeLinks.forEach((link) =>
         link.addEventListener("click", (e) => {
@@ -105,25 +134,42 @@ import "../styles/hamburger.css";
 
 <header class="fixed top-0 left-0 right-0 z-50 w-full bg-transparent">
   <div class="text-white py-4">
-    <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+    <div class="container mx-auto px-4 py-2 flex items-center">
       <a href="https://www.zarashalsofokus.com" class="inline-block">
         <span
-          class="inline-flex items-center rounded-lg bg-black/20 md:bg-black/10 p-2 md:p-3"
+          class="inline-flex items-center rounded-lg bg-black/20 hover:bg-black/30 md:bg-black/10 p-1 sm:p-2 md:p-3"
         >
           <img
             src="/zaras-halsofokus-logo.png"
             alt="zaras-halsofokus-logo"
-            class="w-56 h-20 md:w-64 md:h-24 animate-fade-in-up brightness-100 invert"
+            class="w-36 h-12 sm:w-44 sm:h-16 md:w-56 md:h-20 lg:w-64 lg:h-24 animate-fade-in-up brightness-100 invert"
           />
         </span>
       </a>
 
-      <!-- Hamburger Menu Button -->
-      <button id="hamburger" class="flex flex-col cursor-pointer">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-      </button>
+      <!-- Right-side actions: CTA + Hamburger -->
+      <div class="flex items-center gap-2 md:gap-9 ml-auto">
+        <!-- Header CTA: visible when hero not in view or on non-home pages -->
+        <a
+          id="header-cta"
+          href="https://www.bokadirekt.se/places/zaras-halsofokus-40836"
+          aria-label="Boka tid"
+          class="hidden inline-flex items-center justify-center bg-blue-500 text-white px-2.5 py-1.5 text-xs rounded-full hover:bg-blue-600 transition whitespace-nowrap sm:px-3 sm:py-1.5 sm:text-sm lg:px-5 lg:py-2.5 lg:text-base"
+        >
+          Boka Nu
+        </a>
+
+        <!-- Hamburger Menu Button -->
+        <button
+          id="hamburger"
+          class="flex flex-col cursor-pointer"
+          aria-label="Meny"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
 
       <!-- Navigation Menu -->
       <nav id="nav-menu" class="nav-menu">
