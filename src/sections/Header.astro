@@ -38,9 +38,11 @@ import "../styles/hamburger.css";
     // Close when clicking outside the menu or hamburger
     document.addEventListener("click", (e) => {
       if (!navMenu.classList.contains("active")) return;
-      const target = e.target as HTMLElement;
-      if (!navMenu.contains(target) && !hamburger.contains(target)) {
-        closeMenu();
+      const target = e.target;
+      if (target && target instanceof Element) {
+        if (!navMenu.contains(target) && !hamburger.contains(target)) {
+          closeMenu();
+        }
       }
     });
 
@@ -51,35 +53,42 @@ import "../styles/hamburger.css";
       }
     });
 
-    // Smooth scroll on homepage; navigate on other pages
-    const onHome = location && location.pathname === "/";
+    // Detect homepage by presence of the hero section (#home)
+    const onHome = !!homeSection;
     // Show CTA in header only when not viewing the hero section (#home)
     if (headerCta) {
-      const showCta = () => headerCta.classList.remove("hidden");
-      const hideCta = () => headerCta.classList.add("hidden");
-      if (onHome && homeSection && "IntersectionObserver" in window) {
-        // Initialize based on current viewport
-        const rect = homeSection.getBoundingClientRect();
-        const inView = rect.top < window.innerHeight && rect.bottom > 0;
-        if (inView) hideCta();
-        else showCta();
+      const headerEl = document.querySelector("header");
+      const showCta = () => {
+        headerCta.classList.remove("opacity-0", "pointer-events-none");
+        headerCta.setAttribute("aria-hidden", "false");
+      };
+      const hideCta = () => {
+        headerCta.classList.add("opacity-0", "pointer-events-none");
+        headerCta.setAttribute("aria-hidden", "true");
+      };
 
-        const observer = new IntersectionObserver(
-          ([entry]) => {
-            if (!entry) return;
-            if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
-              hideCta();
-            } else {
-              showCta();
-            }
-          },
-          { threshold: [0, 0.2, 0.5, 1] },
-        );
-        observer.observe(homeSection);
-      } else {
-        // On non-home pages (no hero), always show CTA
-        showCta();
-      }
+      const updateCtaVisibility = () => {
+        if (!homeSection) {
+          // No hero present → always show CTA
+          showCta();
+          return;
+        }
+        const headerHeight = headerEl
+          ? headerEl.getBoundingClientRect().height
+          : 0;
+        const heroBottom = homeSection.getBoundingClientRect().bottom;
+        // Hide CTA while any part of the hero extends below the header line
+        if (heroBottom > headerHeight) {
+          hideCta();
+        } else {
+          showCta();
+        }
+      };
+
+      // Initialize and keep in sync on scroll/resize
+      updateCtaVisibility();
+      window.addEventListener("scroll", updateCtaVisibility, { passive: true });
+      window.addEventListener("resize", updateCtaVisibility);
     }
     if (onHome && homeSection) {
       homeLinks.forEach((link) =>
@@ -154,7 +163,7 @@ import "../styles/hamburger.css";
           id="header-cta"
           href="https://www.bokadirekt.se/places/zaras-halsofokus-40836"
           aria-label="Boka tid"
-          class="hidden inline-flex items-center justify-center bg-blue-500 text-white px-2.5 py-1.5 text-xs rounded-full hover:bg-blue-600 transition whitespace-nowrap sm:px-3 sm:py-1.5 sm:text-sm lg:px-5 lg:py-2.5 lg:text-base"
+          class="opacity-0 inline-flex items-center justify-center bg-blue-500 text-white px-2.5 py-1.5 text-xs rounded-full hover:bg-blue-600 transition-opacity duration-300 ease-out whitespace-nowrap sm:px-3 sm:py-1.5 sm:text-sm lg:px-5 lg:py-2.5 lg:text-base"
         >
           Boka Nu
         </a>
