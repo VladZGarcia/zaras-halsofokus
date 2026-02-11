@@ -3,23 +3,206 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <section
-    class="min-h-screen flex items-center justify-center bg-[#2f2011] under-header"
-  >
-    <div class="px-6 py-12 text-center max-w-3xl">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Mer om LPG</h1>
-      <p class="text-lg md:text-xl mb-8">
-        Härliga, Hälsosamma LPG! LPG är en djupgående bindvävsmassage som ökar
-        blodcirkulationen i kroppen och sätter bl.a. igång lymfcirkulationen.
-        Det bidrar till att slaggprodukter, toxiner och överflödig vätska
-        lättare kan föras ut ur kroppen, att svullnader minskar och kroppen får
-        ny energi!
+  <!-- Hero: warm image with overlay -->
+  <section class="relative under-header">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('/pictures/soffa-ZH.JPG');"
+    >
+    </div>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div
+      class="relative z-10 max-w-5xl mx-auto px-6 pt-28 md:pt-48 pb-20 text-center"
+    >
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        LPG – cirkulation, återhämtning och form
+      </h1>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto">
+        LPG (Lipomassage/Endermologie) kombinerar bindvävsmassage och
+        vakuumteknik för att främja cirkulation, minska svullnad och förbättra
+        hudens struktur.
       </p>
-      <a
-        href="/"
-        class="inline-block px-6 py-3 rounded-md border border-white/40 bg-white/15 text-white hover:bg-white/25 hover:border-white/60 transition"
-        >Tillbaka</a
-      >
+      <div class="mt-8">
+        <a
+          href="https://www.bokadirekt.se/places/zaras-halsofokus-40836"
+          class="inline-block px-6 py-3 rounded-md border border-white/40 bg-white/15 text-white hover:bg-white/25 hover:border-white/60 transition"
+          >Boka konsultation</a
+        >
+      </div>
     </div>
   </section>
+
+  <!-- Vad är LPG -->
+  <section class="bg-[#2f2011] py-16">
+    <div class="max-w-5xl mx-auto px-6 text-white">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Vad är LPG?</h2>
+      <p class="text-lg mb-6 max-w-3xl text-white/90">
+        LPG är en avancerad, djupgående metod där mekanisk stimulering av hud
+        och underliggande vävnad aktiverar cirkulation och lymfflöde. Resultatet
+        är minskad svullnad, mer elastisk hud och ökad återhämtning.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl md:text-2xl font-semibold">Fördelar</h3>
+          <ul class="list-disc list-inside mt-3 space-y-2 text-white/90">
+            <li>Främjar blodcirkulation och lymfsystemet</li>
+            <li>Minskar svullnad och vätskeansamling</li>
+            <li>Reducerar celluliter och förbättrar hudstruktur</li>
+            <li>Lindrar muskelspänningar och stödjer återhämtning</li>
+            <li>Skonsamt, icke‑invasivt komplement till träning</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl md:text-2xl font-semibold">Behandlingsområden</h3>
+          <ul class="list-disc list-inside mt-3 space-y-2 text-white/90">
+            <li>Lår, höfter och rumpa</li>
+            <li>Mage och midja</li>
+            <li>Armar</li>
+            <li>Rygg</li>
+            <li>Ben (cirkulation/återhämtning)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Så fungerar det -->
+  <section class="bg-[#4a3725] py-16">
+    <div class="max-w-5xl mx-auto px-6 text-white">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Så fungerar LPG</h2>
+      <ol
+        class="list-decimal list-inside space-y-3 text-lg max-w-3xl text-white/90"
+      >
+        <li>Mekanisk stimulering av hud/underhud sätter igång lymfdränage.</li>
+        <li>
+          Vakuum och rullar mobiliserar bindväv och förbättrar cirkulation.
+        </li>
+        <li>
+          Regelbunden behandling kan minska svullnad och förbättra hudens
+          toning.
+        </li>
+      </ol>
+      <p class="text-lg mt-6 max-w-3xl text-white/90">
+        En kur består ofta av 6–12 behandlingar beroende på mål. Varje pass är
+        skonsamt och ger en behaglig känsla av ökad cirkulation och lätthet.
+      </p>
+    </div>
+  </section>
+
+  <!-- Passar dig som -->
+  <section class="bg-[#6a4e34] py-16">
+    <div class="max-w-5xl mx-auto px-6 text-white">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Passar dig som</h2>
+      <ul
+        class="list-disc list-inside text-lg space-y-2 max-w-3xl text-white/90"
+      >
+        <li>Vill minska svullnad eller vätskeansamling</li>
+        <li>Vill förbättra hudens struktur och elasticitet</li>
+        <li>Har trötta ben och önskar bättre cirkulation</li>
+        <li>Söker ett skonsamt komplement till träning</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Säkerhet & kontraindikationer -->
+  <section class="bg-[#2f2011] py-16">
+    <div class="max-w-5xl mx-auto px-6 text-white">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        Säkerhet & kontraindikationer
+      </h2>
+      <p class="text-lg max-w-3xl text-white/90">
+        LPG är säkert för de flesta, men rekommenderas inte vid vissa tillstånd.
+        Rådgör alltid vid osäkerhet.
+      </p>
+      <ul
+        class="list-disc list-inside mt-3 space-y-2 text-lg max-w-3xl text-white/90"
+      >
+        <li>Graviditet</li>
+        <li>Aktiva hudinfektioner i behandlingsområdet</li>
+        <li>Allvarliga hjärt-/kärlsjukdomar</li>
+        <li>Blödningsrubbningar eller antikoagulantia (rådgör först)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Vanliga frågor (FAQ) -->
+  <section class="bg-[#bfb6ad] py-16">
+    <div class="max-w-5xl mx-auto px-6 text-black">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Vanliga frågor</h2>
+      <div class="space-y-6">
+        <details class="bg-white/60 rounded-md p-4 text-black">
+          <summary class="font-semibold cursor-pointer">Gör det ont?</summary>
+          <p class="mt-2">
+            Behandlingen upplevs ofta som behaglig. Djup bindvävsmobilisering
+            kan kännas, men ska inte göra ont.
+          </p>
+        </details>
+        <details class="bg-white/60 rounded-md p-4 text-black">
+          <summary class="font-semibold cursor-pointer"
+            >Hur snabbt ser man resultat?</summary
+          >
+          <p class="mt-2">
+            Många upplever lättare ben och bättre cirkulation efter första
+            passen. Hudstruktur förbättras över tid.
+          </p>
+        </details>
+        <details class="bg-white/60 rounded-md p-4 text-black">
+          <summary class="font-semibold cursor-pointer"
+            >Hur ofta bör man göra LPG?</summary
+          >
+          <p class="mt-2">
+            Vanligt är 1–2 gånger per vecka under en kur. Därefter kan
+            underhållsbehandlingar planeras vid behov.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative py-16">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold">Redo att börja?</h2>
+      <p class="text-lg mt-3 max-w-2xl mx-auto">
+        Boka en konsultation så skräddarsyr vi en LPG‑plan utifrån dina mål.
+      </p>
+      <div
+        class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4"
+      >
+        <a
+          href="https://www.bokadirekt.se/places/zaras-halsofokus-40836"
+          class="w-full sm:w-auto px-6 py-3 rounded-md border border-white/40 bg-white/20 text-white hover:bg-white/25 hover:border-white/60 transition"
+          >Boka konsultation</a
+        >
+        <a
+          href="https://www.bokadirekt.se/places/zaras-halsofokus-40836"
+          class="w-full sm:w-auto px-6 py-3 rounded-md border border-white/40 bg-white/10 text-white hover:bg-white/20 hover:border-white/60 transition"
+          >Se alla tjänster</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- JSON-LD: Service schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "LPG",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Zaras Hälsofokus",
+        "url": "https://www.zarashalsofokus.com/"
+      },
+      "areaServed": "Stockholm, Sweden",
+      "description": "LPG kombinerar bindvävsmassage och vakuumteknik för att förbättra cirkulationen, minska svullnad och förbättra hudens struktur.",
+      "serviceType": "LPG / Endermologie",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.zarashalsofokus.com/lpg",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  </script>
 </Layout>

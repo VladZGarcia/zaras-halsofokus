@@ -3,18 +3,205 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <section class="min-h-screen flex items-center justify-center bg-[#bfb6ad] under-header">
-    <div class="px-6 py-12 text-center max-w-3xl">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6">Mer om Insculpt</h1>
-      <p class="text-lg md:text-xl mb-8">
-        Fördjupa dig i Insculpt och Insculpt Chair: hur de fungerar, vilka
-        besvär de kan hjälpa mot och hur du bäst förbereder dig.
+  <!-- Hero: image background with overlay -->
+  <section class="relative under-header">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('/pictures/guldspegel.JPG');"
+    >
+    </div>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div
+      class="relative z-10 max-w-5xl mx-auto px-6 pt-28 md:pt-48 pb-20 text-center"
+    >
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        Insculpt – styrka och form utan kirurgi
+      </h1>
+      <p class="text-lg md:text-xl max-w-3xl mx-auto">
+        Insculpt kombinerar HIFEM och RF för att bygga muskler och minska fett.
+        En effektiv, skonsam metod med korta pass och inga återhämtningstider.
       </p>
-      <a
-        href="/"
-        class="inline-block px-6 py-3 rounded-md border border-white/40 bg-white/15 text-white hover:bg-white/25 hover:border-white/60 transition"
-        >Tillbaka</a
-      >
+      <div class="mt-8">
+        <a
+          href="https://www.bokadirekt.se/places/zaras-halsofokus-40836"
+          class="inline-block px-6 py-3 rounded-md border border-white/40 bg-white/15 text-white hover:bg-white/25 hover:border-white/60 transition"
+          >Boka konsultation</a
+        >
+      </div>
     </div>
   </section>
+
+  <!-- Vad är Insculpt -->
+  <section class="bg-[#bfb6ad] py-16">
+    <div class="max-w-5xl mx-auto px-6 text-black">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Vad är Insculpt?</h2>
+      <p class="text-lg mb-6 max-w-3xl">
+        Insculpt använder högintensiv fokuserad elektromagnetisk energi (HIFEM)
+        tillsammans med radiofrekvens (RF) för att skapa kraftiga, kontrollerade
+        muskelkontraktioner samtidigt som värme hjälper till att reducera fett.
+        Resultatet är en mer tonad och definierad kropp – utan kirurgi.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl md:text-2xl font-semibold">Fördelar</h3>
+          <ul class="list-disc list-inside mt-3 space-y-2">
+            <li>Ökar muskelmassa genom intensiva kontraktioner</li>
+            <li>Minskar lokala fettdepåer samtidigt</li>
+            <li>Förbättrar kroppskontur och toning</li>
+            <li>Snabba pass (20–30 min) utan återhämtningstid</li>
+            <li>Icke-invasiv och skonsam behandling</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-xl md:text-2xl font-semibold">Behandlingsområden</h3>
+          <ul class="list-disc list-inside mt-3 space-y-2">
+            <li>Mage och midja</li>
+            <li>Rumpa och höfter</li>
+            <li>Lår (fram/bak/insida)</li>
+            <li>Armar (triceps/biceps)</li>
+            <li>Rygg och flank</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Så fungerar det -->
+  <section class="bg-[#b1a69b] py-16">
+    <div class="max-w-5xl mx-auto px-6 text-black">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Så fungerar Insculpt</h2>
+      <ol class="list-decimal list-inside space-y-3 text-lg max-w-3xl">
+        <li>
+          HIFEM skapar supramaximala muskelkontraktioner som är svåra att uppnå
+          med vanlig träning.
+        </li>
+        <li>
+          RF värmer vävnaden skonsamt vilket kan hjälpa reducering av
+          fettceller.
+        </li>
+        <li>
+          Tillsammans leder detta till ökad muskelvolym och mer definierade
+          konturer.
+        </li>
+      </ol>
+      <p class="text-lg mt-6 max-w-3xl">
+        En kur består ofta av 4–8 behandlingar (2–3 per vecka). Resultat kan ses
+        redan efter några pass och fortsätter förbättras under veckorna efter.
+      </p>
+    </div>
+  </section>
+
+  <!-- Passar dig som -->
+  <section class="bg-[#dcd8d4] py-16">
+    <div class="max-w-5xl mx-auto px-6 text-black">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Passar dig som</h2>
+      <ul class="list-disc list-inside text-lg space-y-2 max-w-3xl">
+        <li>Vill bli mer definierad utan kirurgi</li>
+        <li>Söker effektivt komplement till träning</li>
+        <li>Har begränsad tid men vill se resultat</li>
+        <li>Vill rikta insatsen mot specifika områden</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Säkerhet & kontraindikationer -->
+  <section class="bg-[#a09281] py-16">
+    <div class="max-w-5xl mx-auto px-6 text-black">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        Säkerhet & kontraindikationer
+      </h2>
+      <p class="text-lg max-w-3xl">
+        Insculpt är säkert för de flesta, men rekommenderas inte vid vissa
+        tillstånd. Rådgör alltid vid osäkerhet.
+      </p>
+      <ul class="list-disc list-inside mt-3 space-y-2 text-lg max-w-3xl">
+        <li>Pacemaker eller andra elektroniska implantat</li>
+        <li>Graviditet</li>
+        <li>Allvarliga hjärt-/kärlsjukdomar</li>
+        <li>Aktiva hudinfektioner i behandlingsområdet</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Vanliga frågor (FAQ) -->
+  <section class="bg-[#bfb6ad] py-16">
+    <div class="max-w-5xl mx-auto px-6 text-black">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Vanliga frågor</h2>
+      <div class="space-y-6">
+        <details class="bg-white/60 rounded-md p-4 text-black">
+          <summary class="font-semibold cursor-pointer">Gör det ont?</summary>
+          <p class="mt-2">
+            De flesta upplever starka men hanterbara muskelkontraktioner och en
+            behaglig värmekänsla.
+          </p>
+        </details>
+        <details class="bg-white/60 rounded-md p-4 text-black">
+          <summary class="font-semibold cursor-pointer"
+            >Hur snabbt ser man resultat?</summary
+          >
+          <p class="mt-2">
+            Många ser visuella förändringar efter 2–4 pass. Effekten fortsätter
+            utvecklas i veckorna efter behandlingen.
+          </p>
+        </details>
+        <details class="bg-white/60 rounded-md p-4 text-black">
+          <summary class="font-semibold cursor-pointer"
+            >Hur länge varar resultaten?</summary
+          >
+          <p class="mt-2">
+            Med underhåll (träning/kost) kan resultaten bli långvariga.
+            Uppföljningspass kan hjälpa behålla effekten.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative py-16">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold">Redo att börja?</h2>
+      <p class="text-lg mt-3 max-w-2xl mx-auto">
+        Boka en konsultation så skräddarsyr vi en Insculpt‑plan utifrån dina
+        mål.
+      </p>
+      <div
+        class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4"
+      >
+        <a
+          href="https://www.bokadirekt.se/places/zaras-halsofokus-40836"
+          class="w-full sm:w-auto px-6 py-3 rounded-md border border-white/40 bg-white/20 text-white hover:bg-white/25 hover:border-white/60 transition"
+          >Boka konsultation</a
+        >
+        <a
+          href="https://www.bokadirekt.se/places/zaras-halsofokus-40836"
+          class="w-full sm:w-auto px-6 py-3 rounded-md border border-white/40 bg-white/10 text-white hover:bg-white/20 hover:border-white/60 transition"
+          >Se alla tjänster</a
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- JSON-LD: Service schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Insculpt",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Zaras Hälsofokus",
+        "url": "https://www.zarashalsofokus.com/"
+      },
+      "areaServed": "Stockholm, Sweden",
+      "description": "Insculpt kombinerar HIFEM och RF för att stärka muskler och reducera fett med korta, skonsamma pass utan återhämtningstid.",
+      "serviceType": "Body sculpting",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.zarashalsofokus.com/insculpt",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+  </script>
 </Layout>
