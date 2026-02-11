@@ -139,7 +139,7 @@ body {
 }
 
 .services-section {
-  background: #e6a35f;
+  background: #dec7ac;
   /* Responsive spacing between text and image */
   --services-gap: clamp(16px, 4vw, 64px);
   --services-gap-right: clamp(8px, 2vw, 32px);
