@@ -4,7 +4,18 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout>
   <main>
-    <section id="contact-wrapper" class="relative">
+    <section id="contact-wrapper" class="relative overflow-hidden">
+      <!-- Diagonal watermark band crossing full page width -->
+      <div
+        class="absolute inset-0 pointer-events-none z-10 flex items-center justify-center"
+      >
+        <div
+          class="rotate-[-20deg] bg-yellow-500/40 text-black font-bold text-lg sm:text-xl md:text-2xl py-3 sm:py-4 px-8 shadow-lg whitespace-nowrap w-[400%]"
+        >
+          <div class="text-center">🚧 UNDER CONSTRUCTION / UNDER UPPBYGGNAD 🚧</div>
+        </div>
+      </div>
+
       <!-- Use a local header height variable to avoid affecting other pages -->
       <div
         class="pt-(--page-header-height,120px) min-h-[calc(100vh-var(--page-header-height,120px))] flex flex-col"
@@ -12,7 +23,7 @@ import Layout from "../layouts/Layout.astro";
         <div class="flex-1"></div>
         <div class="container mx-auto px-4 max-w-4xl pb-12 sm:pb-16 lg:pb-20">
           <div
-            class="bg-white/10 ring-1 ring-white/20 backdrop-blur rounded-2xl p-6 md:p-8"
+            class="bg-white/10 ring-1 ring-white/20 backdrop-blur rounded-2xl p-6 md:p-8 relative"
           >
             <div class="mb-8 text-center">
               <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold">
