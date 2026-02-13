@@ -173,7 +173,7 @@ body {
   --image-left: 0;
   --image-right: auto;
   --image-width: 50%;
-  --image-url: url('/pictures/guldspegel.JPG');
+  --image-url: url('/pictures/Insculpt-chair.png');
   --overlay-gradient: linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0));
   --overlay-small: rgba(0, 0, 0, 0.6);
 }
@@ -196,10 +196,16 @@ body {
   --image-left: auto;
   --image-right: 0;
   --image-width: 50%;
-  --image-url: url('/pictures/soffa-ZH.JPG');
+  --image-url: url('/pictures/cellu-m6-alliance.jpg');
   --overlay-gradient: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0));
   --overlay-small: rgba(0, 0, 0, 0.6);
 }
+
+/* Make LPG image more zoomed in */
+/* .lpg-section::before {
+  background-size: 140%;
+  background-position: center;
+} */
 
 
 .lpg-content {
