@@ -2,5 +2,5 @@
   // Cloudflare Pages deployment config
   "name": "zaras-halsofokus",
   "compatibility_date": "2026-02-04",
-  "pages_build_output_dir": "./dist"
+  "pages_build_output_dir": "dist"
 }
