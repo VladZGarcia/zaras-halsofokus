@@ -41,7 +41,7 @@ import Layout from "../layouts/Layout.astro";
             <form
               id="contact-form"
               method="POST"
-              action="/contact"
+              action="/api/contact"
               class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
             >
               <!-- Namn -->
@@ -188,7 +188,7 @@ import Layout from "../layouts/Layout.astro";
 
       try {
         const formData = new FormData(form);
-        const response = await fetch("/contact", {
+        const response = await fetch("/api/contact", {
           method: "POST",
           body: formData,
         });
