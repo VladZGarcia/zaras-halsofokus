@@ -106,9 +106,10 @@ Tidpunkt: ${new Date().toLocaleString('sv-SE', { timeZone: 'Europe/Stockholm' })
 
     if (!resendResponse.ok) {
       console.error('Resend API error:', resendData);
+      // Return more detailed error for debugging
       return new Response(JSON.stringify({ 
         success: false, 
-        error: 'Kunde inte skicka meddelandet. Försök igen senare.' 
+        error: `Kunde inte skicka meddelandet: ${resendData.message || 'Okänt fel'}` 
       }), {
         status: 500,
         headers: { 'Content-Type': 'application/json' }
