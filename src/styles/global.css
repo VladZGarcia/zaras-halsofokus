@@ -173,7 +173,7 @@ body {
   --image-left: 0;
   --image-right: auto;
   --image-width: 50%;
-  --image-url: url('/pictures/Insculpt-chair.png');
+  --image-url: url('/pictures/Insculpt-body.png');
   --overlay-gradient: linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0));
   --overlay-small: rgba(0, 0, 0, 0.6);
 }
@@ -188,6 +188,32 @@ body {
   text-align: center;
   color: #1a1a1a;
 }
+
+/* Insculpt Chair Section - Similar style to Insculpt */
+.insculpt-chair-section {
+  background: #a89d91;
+  --services-gap: clamp(16px, 4vw, 64px);
+  --services-gap-right: clamp(8px, 2vw, 32px);
+  /* Shared image/overlay variables */
+  --image-left: auto;
+  --image-right: 0;
+  --image-width: 50%;
+  --image-url: url('/pictures/Insculpt-chair.png');
+  --overlay-gradient: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0));
+  --overlay-small: rgba(0, 0, 0, 0.6);
+}
+
+/* Insculpt Chair: image right by default */
+.insculpt-chair-content {
+  grid-column: 1;
+  justify-self: center;
+  width: min(48rem, calc(100% - var(--services-gap) - var(--services-gap-right)));
+  padding-left: var(--services-gap);
+  padding-right: var(--services-gap-right);
+  text-align: center;
+  color: #1a1a1a;
+}
+
 .lpg-section {
   background: #2f2011;
   --services-gap: clamp(16px, 4vw, 64px);
