@@ -1,162 +1,154 @@
-# Zaras Hälsofokus# Astro Starter Kit: Basics
+# Zaras Hälsofokus
 
-A modern, professional website for Zaras Hälsofokus - a health and wellness clinic in Stockholm specializing in Insculpt, Insculpt Chair, and LPG treatments.```sh
+A modern website for Zaras Hälsofokus, a health and wellness clinic in Stockholm specializing in Insculpt, Insculpt Chair, and LPG treatments.
 
-npm create astro@latest -- --template basics
+## 🌟 Features
 
-## 🌟 Features```
+- Modern Astro setup with Cloudflare adapter
+- Responsive UI with reusable sections/components
+- Contact form API endpoint integrated with Resend
+- SEO improvements with canonical URLs and Open Graph metadata
 
-- **Modern Astro Framework** - Fast, optimized static site generation with server-side capabilities> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Project Structure
 
-- **Cloudflare Pages Deployment** - Edge-deployed with serverless functions
-
-- **Responsive Design** - Mobile-first approach with Tailwind CSS## 🚀 Project Structure
-
-- **Contact Form** - Integrated with Resend.com API for secure email delivery
-
-- **SEO Optimized** - JSON-LD structured data for better search engine visibilityInside of your Astro project, you'll see the following folders and files:
-
-- **Professional Sections** - Dedicated pages for each treatment service
-
-````text
-
-## 🚀 Project Structure/
-
+```text
+/
 ├── public/
-
-```text│   └── favicon.svg
-
-/├── src
-
-├── public/│   ├── assets
-
-│   ├── favicon_io/          # Favicon assets│   │   └── astro.svg
-
-│   ├── pictures/            # Treatment images│   ├── components
-
-│   └── videos/              # Video assets│   │   └── Welcome.astro
-
-├── src/│   ├── layouts
-
-│   ├── assets/              # Static assets│   │   └── Layout.astro
-
-│   ├── components/          # Reusable Astro components│   └── pages
-
-│   │   └── HamburgerMenu.astro│       └── index.astro
-
-│   ├── layouts/└── package.json
-
-│   │   └── Layout.astro     # Main layout wrapper```
-
-│   ├── pages/               # Route pages (file-based routing)
-
-│   │   ├── api/To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-│   │   │   └── contact.ts   # Contact form API endpoint
-
-│   │   ├── index.astro      # Homepage## 🧞 Commands
-
-│   │   ├── services.astro   # Services overview
-
-│   │   ├── insculpt.astro   # Insculpt treatment pageAll commands are run from the root of the project, from a terminal:
-
-│   │   ├── insculptChair.astro  # Insculpt Chair page
-
-│   │   ├── lpg.astro        # LPG treatment page| Command                   | Action                                           |
-
-│   │   ├── contact.astro    # Contact form page| :------------------------ | :----------------------------------------------- |
-
-│   │   └── aboutUs.astro    # About page (under construction)| `npm install`             | Installs dependencies                            |
-
-│   ├── sections/            # Page sections as components| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-
-│   │   ├── Header.astro| `npm run build`           | Build your production site to `./dist/`          |
-
-│   │   ├── Footer.astro| `npm run preview`         | Preview your build locally, before deploying     |
-
-│   │   ├── Hero.astro| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-
-│   │   ├── Services.astro| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
+│   ├── favicon_io/
+│   ├── favicon_za/
+│   ├── favicon_ZH/
+│   ├── pictures/
+│   └── videos/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   └── HamburgerMenu.astro
+│   ├── layouts/
+│   │   └── Layout.astro
+│   ├── pages/
+│   │   ├── aboutUs.astro
+│   │   ├── contact.astro
+│   │   ├── index.astro
+│   │   ├── insculpt.astro
+│   │   ├── insculptChair.astro
+│   │   ├── lpg.astro
+│   │   ├── services.astro
+│   │   └── api/
+│   │       └── contact.ts
+│   ├── sections/
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── Hero.astro
+│   │   ├── InsculpChair.astro
 │   │   ├── Insculpt.astro
-
-│   │   ├── InsculpChair.astro## 👀 Want to learn more?
-
-│   │   └── Lpg.astro
-
-│   └── styles/Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-│       ├── global.css       # Global styles and CSS variables
-│       └── hamburger.css    # Mobile menu styles
-├── functions/               # Cloudflare Pages Functions (legacy)
-│   └── contact/
-│       └── index.js
-├── astro.config.mjs         # Astro configuration
-├── wrangler.jsonc           # Cloudflare deployment config
-└── package.json
-````
+│   │   ├── Lpg.astro
+│   │   └── Services.astro
+│   └── styles/
+│       ├── global.css
+│       └── hamburger.css
+├── astro.config.mjs
+├── wrangler.jsonc
+├── tsconfig.json
+├── package.json
+└── README.md
+```
 
 ## 🧞 Commands
 
-All commands are run from the root of the project:
+Run from the project root:
 
-| Command             | Action                                           |
-| :------------------ | :----------------------------------------------- |
-| `npm install`       | Installs dependencies                            |
-| `npm run dev`       | Starts local dev server at `localhost:4321`      |
-| `npm run build`     | Build your production site to `./dist/`          |
-| `npm run preview`   | Preview your build locally, before deploying     |
-| `npm run astro ...` | Run CLI commands like `astro add`, `astro check` |
+| Command             | Action                                       |
+| :------------------ | :------------------------------------------- |
+| `npm install`       | Install dependencies                         |
+| `npm run dev`       | Start local dev server at `localhost:4321`   |
+| `npm run build`     | Build for production to `./dist/`            |
+| `npm run preview`   | Preview production build locally             |
+| `npm run astro ...` | Run Astro CLI commands (`astro check`, etc.) |
 
 ## 🛠️ Tech Stack
 
-- **Framework**: [Astro 5.x](https://astro.build)
-- **Styling**: [Tailwind CSS 4.x](https://tailwindcss.com)
-- **Deployment**: [Cloudflare Pages](https://pages.cloudflare.com)
-- **Adapter**: [@astrojs/cloudflare](https://docs.astro.build/en/guides/integrations-guide/cloudflare/)
-- **Email Service**: [Resend.com](https://resend.com)
+- Framework: Astro 5
+- Styling: CSS + Astro components
+- Deployment: Cloudflare Pages
+- Adapter: `@astrojs/cloudflare`
+- Email: Resend API
 
 ## 📧 Contact Form Setup
 
-The contact form uses Resend.com API for secure email delivery. To set up:
+The contact form posts to `/api/contact` and uses Resend.
 
-1. Sign up at [Resend.com](https://resend.com)
-2. Add and verify your domain
-3. Create an API key
-4. Add environment variables to Cloudflare Pages:
-   - `RESEND_API_KEY` - Your Resend API key
-   - `DESTINATION_EMAIL` - Email address to receive form submissions
+Set these environment variables in Cloudflare Pages:
 
-See `RESEND_SETUP.md` for detailed setup instructions.
+- `RESEND_API_KEY`
+- `DESTINATION_EMAIL`
+
+See `RESEND_SETUP.md` for setup details.
 
 ## 🌐 Deployment
 
-The site is automatically deployed to Cloudflare Pages via GitHub integration:
+This project is deployed via Cloudflare Pages.
 
-1. Push changes to the `dev` branch
-2. Cloudflare automatically builds and deploys
-3. Live at: [https://www.zarashalsofokus.com](https://www.zarashalsofokus.com)
+1. Push changes to `dev`
+2. Cloudflare builds and deploys automatically
+3. Production URL: `https://www.zarashalsofokus.com`
 
-### Environment Variables (Cloudflare Pages)
+## 📄 Pages
 
-Set these in Cloudflare Dashboard → Workers & Pages → Project → Settings → Environment variables:
+- `/` Home
+- `/services` Services
+- `/insculpt` Insculpt
+- `/insculptChair` Insculpt Chair
+- `/lpg` LPG
+- `/contact` Contact
+- `/aboutUs` About Us
 
-- `RESEND_API_KEY` - Resend API key for email functionality
-- `DESTINATION_EMAIL` - Email to receive contact form submissions
+## 🔍 SEO Notes
 
-## 📄 Pages Overview
+- Canonical URLs are generated in `src/layouts/Layout.astro`
+- Unique page titles/descriptions are set per page
+- Open Graph tags use canonical URL values
 
-- **Homepage** (`/`) - Hero section with services overview
+- **Unique Meta Tags** - Each page has unique title and description optimized for search engines1. Push changes to the `dev` branch
+
+- **JSON-LD Structured Data** - Rich snippets on service pages for better search visibility2. Cloudflare automatically builds and deploys
+
+- **Open Graph Tags** - Optimized social media sharing3. Live at: [https://www.zarashalsofokus.com](https://www.zarashalsofokus.com)
+
+- **Semantic HTML** - Proper heading hierarchy and semantic elements
+
+- **Fast Loading Times** - Optimized with Astro's static generation### Environment Variables (Cloudflare Pages)
+
+## 📝 Development NotesSet these in Cloudflare Dashboard → Workers & Pages → Project → Settings → Environment variables:
+
+- Uses Astro's file-based routing- `RESEND_API_KEY` - Resend API key for email functionality
+
+- API endpoint at `/api/contact` for form submissions (not `/contact`)- `DESTINATION_EMAIL` - Email to receive contact form submissions
+
+- Cloudflare adapter enables serverless functions
+
+- Tailwind CSS with custom animations## 📄 Pages Overview
+
+- Section components for reusable layouts
+
+- Site URL configured: `https://www.zarashalsofokus.com`- **Homepage** (`/`) - Hero section with services overview
+
 - **Services** (`/services`) - Detailed services with split image sections
-- **Insculpt** (`/insculpt`) - Full page about Insculpt body sculpting
+
+## 🤝 Contributing- **Insculpt** (`/insculpt`) - Full page about Insculpt body sculpting
+
 - **Insculpt Chair** (`/insculptChair`) - Pelvic floor strengthening treatment
-- **LPG** (`/lpg`) - LPG/Endermologie treatment details
+
+This is a private project for Zaras Hälsofokus. For questions or updates, contact the development team.- **LPG** (`/lpg`) - LPG/Endermologie treatment details
+
 - **Contact** (`/contact`) - Contact form with validation
-- **About Us** (`/aboutUs`) - Professional "under construction" page
 
-## 🎨 Design System
+## 📞 Business Contact- **About Us** (`/aboutUs`) - Professional "under construction" page
 
-The site uses a consistent color palette defined in `global.css`:
+**Zaras Hälsofokus** ## 🎨 Design System
+
+Website: [www.zarashalsofokus.com](https://www.zarashalsofokus.com)
+
+Booking: [Book via BokaDirekt](https://www.bokadirekt.se/places/zaras-halsofokus-40836)The site uses a consistent color palette defined in `global.css`:
 
 - Primary: `#bfb6ad` (warm beige)
 - Secondary: `#2f2011` (dark brown)
