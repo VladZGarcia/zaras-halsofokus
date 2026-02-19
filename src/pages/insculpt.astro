@@ -2,12 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout>
+<Layout
+  title="Insculpt - Bygg muskler och minska fett utan kirurgi | Zaras Hälsofokus"
+  description="Insculpt kombinerar HIFEM och RF för att stärka muskler och reducera fett. Effektiv kroppsformning med korta pass och ingen återhämtningstid. Boka konsultation i Stockholm!"
+>
   <!-- Hero: image background with overlay -->
   <section class="relative under-header">
     <div
       class="absolute inset-0 bg-cover bg-center"
-      style="background-image: url('/pictures/Insculpt body.png');"
+      style="background-image: url('/pictures/Insculpt-body.png');"
     >
     </div>
     <div class="absolute inset-0 bg-black/40"></div>
@@ -130,10 +133,21 @@ import Layout from "../layouts/Layout.astro";
       <h2 class="text-3xl md:text-4xl font-bold mb-6">Vanliga frågor</h2>
       <div class="space-y-6">
         <details class="bg-white/60 rounded-md p-4 text-black">
+          <summary class="font-semibold cursor-pointer"
+            >Vad är Insculpt?</summary
+          >
+          <p class="mt-2">
+            Insculpt är en icke-invasiv behandling som kombinerar HIFEM
+            (högintensiv fokuserad elektromagnetisk energi) och RF
+            (radiofrekvens) för att stärka muskler och reducera fett samtidigt.
+          </p>
+        </details>
+        <details class="bg-white/60 rounded-md p-4 text-black">
           <summary class="font-semibold cursor-pointer">Gör det ont?</summary>
           <p class="mt-2">
             De flesta upplever starka men hanterbara muskelkontraktioner och en
-            behaglig värmekänsla.
+            behaglig värmekänsla. Behandlingen är inte smärtsam, men du känner
+            musklerna arbeta intensivt.
           </p>
         </details>
         <details class="bg-white/60 rounded-md p-4 text-black">
@@ -142,7 +156,8 @@ import Layout from "../layouts/Layout.astro";
           >
           <p class="mt-2">
             Många ser visuella förändringar efter 2–4 pass. Effekten fortsätter
-            utvecklas i veckorna efter behandlingen.
+            utvecklas i veckorna efter behandlingen, med bäst resultat efter en
+            fullständig behandlingskur.
           </p>
         </details>
         <details class="bg-white/60 rounded-md p-4 text-black">
@@ -150,8 +165,69 @@ import Layout from "../layouts/Layout.astro";
             >Hur länge varar resultaten?</summary
           >
           <p class="mt-2">
-            Med underhåll (träning/kost) kan resultaten bli långvariga.
-            Uppföljningspass kan hjälpa behålla effekten.
+            Med underhåll genom träning och hälsosam kost kan resultaten bli
+            långvariga. Uppföljningspass några gånger per år kan hjälpa behålla
+            effekten.
+          </p>
+        </details>
+        <details class="bg-white/60 rounded-md p-4 text-black">
+          <summary class="font-semibold cursor-pointer"
+            >Hur många behandlingar behövs?</summary
+          >
+          <p class="mt-2">
+            En typisk kur består av 4–6 behandlingar med 2–3 dagars mellanrum.
+            Vi anpassar alltid antalet pass efter dina individuella mål och
+            behov.
+          </p>
+        </details>
+        <details class="bg-white/60 rounded-md p-4 text-black">
+          <summary class="font-semibold cursor-pointer"
+            >Vilka områden kan behandlas?</summary
+          >
+          <p class="mt-2">
+            Insculpt fungerar utmärkt på mage, rumpa, lår, armar och vader. Vi
+            kan behandla flera områden under samma session eller fokusera på ett
+            specifikt område.
+          </p>
+        </details>
+        <details class="bg-white/60 rounded-md p-4 text-black">
+          <summary class="font-semibold cursor-pointer"
+            >Finns det några biverkningar?</summary
+          >
+          <p class="mt-2">
+            Behandlingen är säker och icke-invasiv. Vissa kan känna muskelvärk
+            liknande efter träning, men detta försvinner inom 1–2 dagar. Det
+            finns ingen återhämtningstid.
+          </p>
+        </details>
+        <details class="bg-white/60 rounded-md p-4 text-black">
+          <summary class="font-semibold cursor-pointer"
+            >Kan jag träna efter behandlingen?</summary
+          >
+          <p class="mt-2">
+            Ja, du kan återgå till normal aktivitet direkt efter behandlingen.
+            Vi rekommenderar dock att vänta några timmar innan intensiv träning
+            av de behandlade muskelgrupperna.
+          </p>
+        </details>
+        <details class="bg-white/60 rounded-md p-4 text-black">
+          <summary class="font-semibold cursor-pointer"
+            >Vem passar behandlingen för?</summary
+          >
+          <p class="mt-2">
+            Insculpt passar de flesta som vill stärka muskler och forma kroppen.
+            Behandlingen är inte lämplig för gravida, personer med pacemaker
+            eller metallimplantat i behandlingsområdet.
+          </p>
+        </details>
+        <details class="bg-white/60 rounded-md p-4 text-black">
+          <summary class="font-semibold cursor-pointer"
+            >Vad kostar en behandling?</summary
+          >
+          <p class="mt-2">
+            Priset varierar beroende på behandlingsområde och antal sessioner.
+            Kontakta oss för en kostnadsfri konsultation där vi går igenom dina
+            mål och ger en exakt prisbild.
           </p>
         </details>
       </div>

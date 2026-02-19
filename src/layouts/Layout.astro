@@ -2,6 +2,25 @@
 import Header from "../sections/Header.astro";
 import Footer from "../sections/Footer.astro";
 import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+
+// Get the current URL for canonical tag
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || "https://www.zarashalsofokus.com",
+);
+
+// Default values
+const pageTitle = title || "Zaras Hälsofokus";
+const pageDescription =
+  description ||
+  "Zaras Hälsofokus är specialist på LPG-behandlingar i Stockholm. Personliga behandlingar för celluliter, cirkulation och välmående. Boka idag!";
 ---
 
 <!doctype html>
@@ -9,6 +28,10 @@ import "../styles/global.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+
+    <!-- Canonical URL - självrefererande för att undvika dubbletter -->
+    <link rel="canonical" href={canonicalURL} />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,11 +44,8 @@ import "../styles/global.css";
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Zaras Hälsofokus</title>
-    <meta
-      name="description"
-      content="Zaras Hälsofokus är specialist på LPG-behandlingar i Stockholm. Personliga behandlingar för celluliter, cirkulation och välmående. Boka idag!"
-    />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
     <meta
       name="keywords"
       content="Hälsa, Välmående, Kost, Träning, Mental hälsa, Livsstil, LPG, LPG massage, Insculpt, Insculpt Chair "
@@ -36,13 +56,10 @@ import "../styles/global.css";
     <meta name="googlebot" content="index, follow" />
     <meta name="bingbot" content="index, follow" />
     <meta name="yandexbot" content="index, follow" />
-    <meta property="og:title" content="Zaras Hälsofokus" />
-    <meta
-      property="og:description"
-      content="Zaras Hälsofokus är specialist på LPG-behandlingar i Stockholm. Personliga behandlingar för celluliter, cirkulation och välmående. Boka idag!"
-    />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://zarashalsofokus.com" />
+    <meta property="og:url" content={canonicalURL} />
   </head>
   <body>
     <Header />
