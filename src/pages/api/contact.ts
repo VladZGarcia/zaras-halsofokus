@@ -5,10 +5,9 @@
 
 import type { APIRoute } from 'astro';
 
-/* uncoment for dev test */
-/* export const prerender = false; */
+export const prerender = false;
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   try {
     // Get form data
     const formData = await request.formData();
@@ -87,9 +86,10 @@ Skickat från: ${clientIP}
 Tidpunkt: ${new Date().toLocaleString('sv-SE', { timeZone: 'Europe/Stockholm' })}
     `.trim();
 
-    // Get environment variables from Cloudflare
-    const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
-    const DESTINATION_EMAIL = import.meta.env.DESTINATION_EMAIL;
+    // Get environment variables from Cloudflare (runtime or build-time)
+    const runtime = (locals as any).runtime?.env || {};
+    const RESEND_API_KEY = runtime.RESEND_API_KEY || import.meta.env.RESEND_API_KEY;
+    const DESTINATION_EMAIL = runtime.DESTINATION_EMAIL || import.meta.env.DESTINATION_EMAIL;
 
     // Send email using Resend API
     const resendResponse = await fetch('https://api.resend.com/emails', {
