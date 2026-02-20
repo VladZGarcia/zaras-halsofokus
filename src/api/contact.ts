@@ -5,6 +5,9 @@
 
 import type { APIRoute } from 'astro';
 
+/* uncoment for dev test */
+/* export const prerender = false; */
+
 export const POST: APIRoute = async ({ request }) => {
   try {
     // Get form data
