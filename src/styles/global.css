@@ -267,7 +267,8 @@ body {
 .hero-content,
 .services-content,
 .lpg-content,
-.insculpt-content {
+.insculpt-content,
+.insculpt-chair-content {
   position: relative;
   z-index: 3;
 }
@@ -285,6 +286,12 @@ body {
 
 /* LPG content uses mirrored padding to balance spacing when on the left */
 .lpg-content.split-content {
+  padding-left: var(--services-gap-right);
+  padding-right: var(--services-gap);
+}
+
+/* Insculpt Chair content also on the left — mirror padding the same way */
+.insculpt-chair-content.split-content {
   padding-left: var(--services-gap-right);
   padding-right: var(--services-gap);
 }
