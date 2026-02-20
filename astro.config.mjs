@@ -4,6 +4,7 @@ import cloudflare from '@astrojs/cloudflare';
 import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
+// Trigger fresh build
 export default defineConfig({
   site: 'https://www.zarashalsofokus.com',
   adapter: cloudflare({
