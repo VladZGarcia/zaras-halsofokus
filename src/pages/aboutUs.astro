@@ -6,83 +6,153 @@ import Layout from "../layouts/Layout.astro";
   title="Om oss - Zaras Hälsofokus | Professionella behandlingar i Stockholm"
   description="Lär känna Zaras Hälsofokus. Vi erbjuder LPG, Insculpt och Insculpt Chair med fokus på individanpassade behandlingar och välmående. Välkommen till vår klinik i Stockholm."
 >
-  <section
-    class="min-h-screen flex items-center justify-center bg-[#bfb6ad] under-header"
-  >
-    <div class="px-6 py-12 text-center max-w-4xl">
-      <!-- Icon/Visual Element -->
-      <div class="mb-8 flex justify-center">
-        <svg
-          class="w-20 h-20 md:w-24 md:h-24 text-[#2f2011]/60"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="1.5"
-            d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-          ></path>
-        </svg>
-      </div>
-
-      <!-- Main Heading -->
-      <h1
-        class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-[#2f2011]"
-      >
-        Kommer snart
-      </h1>
-
-      <!-- Subtitle -->
-      <p class="text-xl md:text-2xl mb-6 text-[#2f2011]/80 font-light">
-        Vi arbetar med något spännande
+  <!-- Hero -->
+  <section class="relative under-header">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url('/pictures/soffa-klocka.JPG');"
+    >
+    </div>
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div
+      class="relative z-10 max-w-4xl mx-auto px-6 pt-28 md:pt-48 pb-20 text-center text-white"
+    >
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Om oss</h1>
+      <p class="text-lg md:text-xl max-w-2xl mx-auto text-white/90">
+        Välkommen till Zaras Hälsofokus – där din hälsa och ditt välmående
+        alltid står i centrum.
       </p>
+    </div>
+  </section>
 
-      <!-- Description -->
-      <div class="mb-8 space-y-4 text-[#2f2011]/70">
-        <p class="text-base md:text-lg max-w-2xl mx-auto">
-          Vi förbereder en dedikerad sida där du kan lära känna oss och vårt
-          team närmare.
+  <!-- Story section -->
+  <section class="bg-[#bfb6ad] py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-[#2f2011] mb-8 text-center"
+      >
+        Vår historia
+      </h2>
+      <div
+        class="space-y-6 text-[#2f2011]/85 text-base md:text-lg leading-relaxed"
+      >
+        <p>
+          Under år 2021 tog Zara det betydelsefulla steget att grunda företaget
+          Zaras Hälsofokus. Denna uppstart föddes ur hennes personliga
+          erfarenhet av att uppleva en påtaglig förbättring i sin livskvalitet
+          som en direkt konsekvens av LPG-behandling. Denna banbrytande metod
+          för skönhets- och hälsovård spelade en avgörande roll i hennes liv och
+          inspirerade henne att dela denna positiva upplevelse med andra.
         </p>
-        <p class="text-base md:text-lg max-w-2xl mx-auto">
-          Under tiden kan du utforska våra behandlingar eller kontakta oss
-          direkt för mer information.
+        <p>
+          LPG-behandling, även känd som Endermologie, har visat sig vara en
+          effektiv teknik för att öka välmåendet, minska celluliter, förbättra
+          cirkulationen och främja lymfatisk dränering. Zara upplevde dessa
+          fördelar för första gången och fann att det inte bara förbättrade
+          hennes fysiska välmående utan även hennes självförtroende och
+          livskvalitet.
+        </p>
+        <p>
+          Med sitt företag, Zaras Hälsofokus, strävar Zara efter att dela
+          fördelarna av LPG-behandling med andra och erbjuda dem en möjlighet
+          att förbättra sitt utseende och välmående. Genom att fokusera på
+          hälsa, välbefinnande och skönhet har Zara skapat en plattform som inte
+          bara syftar till att förändra människors yttre, utan också att stärka
+          deras inre självförtroende och självkänsla. Hennes personliga
+          erfarenhet och passion för LPG-behandling har drivit henne att dela
+          denna metod med andra och inspirera en hälsosammare och självsäkrare
+          livsstil.
         </p>
       </div>
+    </div>
+  </section>
 
-      <!-- Progress indicator (optional visual element) -->
-      <div class="max-w-md mx-auto mb-8">
-        <div class="h-1 bg-[#2f2011]/20 rounded-full overflow-hidden">
-          <div class="h-full bg-[#2f2011]/60 rounded-full w-2/3 animate-pulse">
+  <!-- Team section -->
+  <section class="bg-[#a89d91] py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12">
+        Möt teamet
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <!-- Zara -->
+        <div
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
+        >
+          <div class="h-72 overflow-hidden">
+            <img
+              src="/pictures/Zara.jpg"
+              alt="Zara"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              style="object-position: center 50%;"
+            />
+          </div>
+          <div class="p-5 text-center">
+            <h3 class="text-xl font-semibold text-white mb-1">Zara</h3>
+            <p class="text-white/70 text-sm">Grundare &amp; Behandlare</p>
+          </div>
+        </div>
+
+        <!-- Zara & Jock -->
+        <div
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
+        >
+          <div class="h-72 overflow-hidden">
+            <img
+              src="/pictures/zarajock.jpg"
+              alt="Zara och Jock"
+              class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
+              style="object-position: center 10%;"
+            />
+          </div>
+          <div class="p-5 text-center">
+            <h3 class="text-xl font-semibold text-white mb-1">
+              Zara &amp; Jock
+            </h3>
+            <p class="text-white/70 text-sm">Teamet</p>
+          </div>
+        </div>
+
+        <!-- Jock -->
+        <div
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
+        >
+          <div class="h-72 overflow-hidden">
+            <img
+              src="/pictures/jock.jpg"
+              alt="Jock"
+              class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div class="p-5 text-center">
+            <h3 class="text-xl font-semibold text-white mb-1">Jock</h3>
+            <p class="text-white/70 text-sm">Behandlare</p>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Action Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a
-          href="/services"
-          class="w-full sm:w-auto px-6 py-3 rounded-md border border-[#2f2011]/40 bg-[#2f2011]/90 text-white hover:bg-[#2f2011] hover:border-[#2f2011] transition font-medium"
-        >
-          Se våra tjänster
-        </a>
+  <!-- CTA -->
+  <section class="bg-[#bfb6ad] py-16">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-[#2f2011] mb-4">
+        Redo att ta hand om dig själv?
+      </h2>
+      <p class="text-[#2f2011]/75 mb-8 text-base md:text-lg">
+        Boka din behandling idag och upplev skillnaden.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
           href="https://www.bokadirekt.se/places/zaras-halsofokus-40836"
-          class="w-full sm:w-auto px-6 py-3 rounded-md border border-[#2f2011]/30 bg-white/60 text-[#2f2011] hover:bg-white hover:border-[#2f2011]/50 transition font-medium"
+          class="px-6 py-3 rounded-md bg-[#2f2011] text-white hover:bg-[#2f2011]/85 transition font-medium"
         >
           Boka behandling
         </a>
-      </div>
-
-      <!-- Back link (subtle) -->
-      <div class="mt-10">
         <a
-          href="/"
-          class="text-sm text-[#2f2011]/60 hover:text-[#2f2011] transition underline"
+          href="/#services"
+          class="px-6 py-3 rounded-md border border-[#2f2011]/40 bg-white/60 text-[#2f2011] hover:bg-white transition font-medium"
         >
-          ← Tillbaka till startsidan
+          Se våra tjänster
         </a>
       </div>
     </div>
