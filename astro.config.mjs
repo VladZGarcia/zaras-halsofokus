@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 // Trigger fresh build
 export default defineConfig({
   site: 'https://www.zarashalsofokus.com',
-  output: 'server',
+  output: 'static',
   adapter: cloudflare({
     platformProxy: {
       enabled: true
