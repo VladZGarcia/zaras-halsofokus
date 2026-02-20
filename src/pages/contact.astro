@@ -44,7 +44,7 @@ import Layout from "../layouts/Layout.astro";
             <form
               id="contact-form"
               method="POST"
-              action="/api/contact"
+              action="/api/send-email"
               class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6"
             >
               <!-- Namn -->
@@ -194,7 +194,7 @@ import Layout from "../layouts/Layout.astro";
 
       try {
         const formData = new FormData(form);
-        const response = await fetch("/api/contact", {
+        const response = await fetch("/api/send-email", {
           method: "POST",
           body: formData,
         });
@@ -219,7 +219,7 @@ import Layout from "../layouts/Layout.astro";
         }
       } catch (error) {
         // Network error
-        console.error("Form error:", error);
+        console.log("Form error:", error);
         messageDiv.className =
           "mt-4 p-4 rounded-lg bg-red-500/20 border border-red-500/40 text-red-100 text-center";
         messageDiv.textContent =
