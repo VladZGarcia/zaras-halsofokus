@@ -20,9 +20,13 @@ import "../styles/hamburger.css";
     const insculptLinks = document.querySelectorAll(
       'a[href="/#insculpt"], a[href="#insculpt"]',
     );
+    const insculptChairLinks = document.querySelectorAll(
+      'a[href="/#insculpt-chair"], a[href="#insculpt-chair"]',
+    );
     const servicesSection = document.getElementById("services");
     const lpgSection = document.getElementById("lpg");
     const insculptSection = document.getElementById("insculpt");
+    const insculptChairSection = document.getElementById("insculpt-chair");
     const homeSection = document.getElementById("home");
 
     if (!hamburger || !navMenu) return;
@@ -132,6 +136,18 @@ import "../styles/hamburger.css";
         }),
       );
     }
+    if (onHome && insculptChairSection) {
+      insculptChairLinks.forEach((link) =>
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          insculptChairSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+          closeMenu();
+        }),
+      );
+    }
 
     // Also close when any nav link is clicked (for non-home navigation)
     const allNavLinks = navMenu.querySelectorAll("a[href]");
@@ -189,6 +205,10 @@ import "../styles/hamburger.css";
           <li><a href="/#services" class="hover:text-gray-400">Tjänster</a></li>
           <li><a href="/#lpg" class="hover:text-gray-400">LPG</a></li>
           <li><a href="/#insculpt" class="hover:text-gray-400">Insculpt</a></li>
+          <li>
+            <a href="/#insculpt-chair" class="hover:text-gray-400"
+              >Insculpt Chair</a>
+          </li>
           <li><a href="/aboutUs" class="hover:text-gray-400">Om oss</a></li>
           <li><a href="/contact" class="hover:text-gray-400">Kontakt</a></li>
           <ul
