@@ -34,7 +34,7 @@ A modern website for Zaras Hälsofokus, a health and wellness clinic in Stockhol
 │   │   ├── lpg.astro
 │   │   ├── services.astro
 │   │   └── api/
-│   │       └── contact.ts
+│   │       └── send-email.ts
 │   ├── sections/
 │   │   ├── Footer.astro
 │   │   ├── Header.astro
@@ -75,7 +75,7 @@ Run from the project root:
 
 ## 📧 Contact Form Setup
 
-The contact form posts to `/api/contact` and uses Resend.
+The contact form posts to `/api/send-email` and uses Resend.
 
 Set these environment variables in Cloudflare Pages:
 
@@ -122,7 +122,7 @@ This project is deployed via Cloudflare Pages.
 
 - Uses Astro's file-based routing- `RESEND_API_KEY` - Resend API key for email functionality
 
-- API endpoint at `/api/contact` for form submissions (not `/contact`)- `DESTINATION_EMAIL` - Email to receive contact form submissions
+- API endpoint at `/api/send-email` for form submissions (not `/contact`)- `DESTINATION_EMAIL` - Email to receive contact form submissions
 
 - Cloudflare adapter enables serverless functions
 
@@ -175,7 +175,7 @@ Background images with overlays are implemented using CSS variables for easy cus
 ## 📝 Development Notes
 
 - Uses Astro's file-based routing
-- API endpoint at `/api/contact` for form submissions
+- API endpoint at `/api/send-email` for form submissions
 - Cloudflare adapter enables serverless functions
 - TailwindCSS with custom animations
 - Section components for reusable layouts
