@@ -62,6 +62,8 @@ npx wrangler deploy
 2. Fill out form → Click "Skicka meddelande"
 3. Check your Gmail!
 
+Optional check: verify env vars via `https://www.zarashalsofokus.com/api/env-check`.
+
 ---
 
 ## 📧 What You Get
@@ -81,6 +83,7 @@ npx wrangler deploy
 - Verify domain in Resend dashboard
 - Check both environment variables are set
 - Redeploy after adding variables
+- Confirm env vars are set: `https://www.zarashalsofokus.com/api/env-check`
 
 **Email not received?**
 

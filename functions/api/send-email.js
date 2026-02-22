@@ -76,15 +76,28 @@ Skickat från: ${clientIP}
 Tidpunkt: ${new Date().toLocaleString('sv-SE', { timeZone: 'Europe/Stockholm' })}
     `.trim();
 
+    const resendApiKey = context.env.RESEND_API_KEY;
+    const destinationEmail = context.env.DESTINATION_EMAIL;
+
+    if (!resendApiKey || !destinationEmail) {
+      return new Response(JSON.stringify({
+        success: false,
+        error: 'Servern saknar RESEND_API_KEY eller DESTINATION_EMAIL.'
+      }), {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+
     const resendResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${context.env.RESEND_API_KEY}`,
+        'Authorization': `Bearer ${resendApiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         from: 'Kontaktformulär <kontakt@zarashalsofokus.com>',
-        to: [context.env.DESTINATION_EMAIL],
+        to: [destinationEmail],
         subject: `[Kontaktformulär] ${subject}`,
         html: htmlBody,
         text: textBody,
