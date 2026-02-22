@@ -102,7 +102,7 @@ If Cloudflare Email API is complex, here's a **simpler alternative** using Resen
 1. Sign up at [resend.com](https://resend.com) (free: 100 emails/day)
 2. Verify your domain
 3. Get API key
-4. Update `functions/contact.js`:
+4. Update `functions/api/send-email.js`:
 
 ```javascript
 // Replace the email sending section with:
