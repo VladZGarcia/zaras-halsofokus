@@ -32,9 +32,11 @@ A modern website for Zaras Hälsofokus, a health and wellness clinic in Stockhol
 │   │   ├── insculpt.astro
 │   │   ├── insculptChair.astro
 │   │   ├── lpg.astro
-│   │   ├── services.astro
-│   │   └── api/
-│   │       └── send-email.ts
+│   │   └── services.astro
+├── functions/
+│   └── api/
+│       ├── env-check.js
+│       └── send-email.js
 │   ├── sections/
 │   │   ├── Footer.astro
 │   │   ├── Header.astro
@@ -81,6 +83,8 @@ Set these environment variables in Cloudflare Pages:
 
 - `RESEND_API_KEY`
 - `DESTINATION_EMAIL`
+
+Verify env vars after deploy by visiting `/api/env-check`.
 
 See `RESEND_SETUP.md` for setup details.
 
