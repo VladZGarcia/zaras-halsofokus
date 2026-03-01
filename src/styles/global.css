@@ -93,124 +93,100 @@ body {
 @media (max-width: 768px) {
   .split-section {
     grid-template-columns: 1fr;
+    min-height: 0; /* Allow sections to shrink on mobile */
   }
 }
 
-/* Shared image/overlay pseudo elements with CSS variables */
-.image-section::before {
-  content: "";
+.image-container {
   position: absolute;
   top: 0;
+  left: 0;
+  width: 50%;
   height: 100%;
-  width: var(--image-width, 50%);
-  left: var(--image-left, 0);
-  right: var(--image-right, auto);
-  background-image: var(--image-url);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   z-index: 1;
 }
 
-.image-section::after {
-  content: "";
+.section-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
   position: absolute;
   top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  width: var(--image-width, 50%);
-  left: var(--image-left, 0);
-  right: var(--image-right, auto);
-  background: var(--overlay-gradient, linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0)));
   z-index: 2;
 }
 
-/* Mobile: make image/overlay span full width and use per-section overlay color */
 @media (max-width: 768px) {
-  .image-section::before,
-  .image-section::after {
+  .image-container {
+    position: relative;
     width: 100%;
-    left: 0;
-    right: 0;
-    background-position: center;
+    height: 300px; /* Or a fixed height that works for your design */
   }
-  .image-section::after {
-    background: var(--overlay-small, rgba(0, 0, 0, 0.6));
+  .overlay {
+     background: rgba(0, 0, 0, 0.6);
   }
 }
 
 .services-section {
   background: #dec7ac;
-  /* Responsive spacing between text and image */
   --services-gap: clamp(16px, 4vw, 64px);
   --services-gap-right: clamp(8px, 2vw, 32px);
-  /* Shared image/overlay variables */
-  --image-left: 0;
-  --image-right: auto;
-  --image-width: 50%;
-  --image-url: url('/pictures/soffa-champange.JPG');
-  --overlay-gradient: linear-gradient(to right, rgba(0,0,0,0.45), rgba(0,0,0,0));
-  --overlay-small: rgba(0, 0, 0, 0.6);
 }
 
-/* (Replaced by shared .image-section::before/::after) */
+.services-section .image-container {
+  left: 0;
+}
 
-/* Position the services text block on the right side */
+.services-section .overlay {
+  background: linear-gradient(to right, rgba(0,0,0,0.45), rgba(0,0,0,0));
+}
+
 .services-content {
-  /* Place content in the right grid column and center it */
   grid-column: 2;
-  justify-self: center;
-  width: min(48rem, calc(100% - var(--services-gap) - var(--services-gap-right)));
-  padding-left: var(--services-gap);
-  padding-right: var(--services-gap-right);
-  text-align: center;
   color: #1a1a1a;
 }
+
 .insculpt-section {
   background: #bfb6ad;
   --services-gap: clamp(16px, 4vw, 64px);
   --services-gap-right: clamp(8px, 2vw, 32px);
-  /* Shared image/overlay variables */
-  --image-left: 0;
-  --image-right: auto;
-  --image-width: 50%;
-  --image-url: url('/pictures/Insculpt-body.png');
-  --overlay-gradient: linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0));
-  --overlay-small: rgba(0, 0, 0, 0.6);
 }
 
-/* Insculpt: image left by default, supports image-right modifier */
+.insculpt-section .image-container {
+  left: 0;
+}
+
+.insculpt-section .overlay {
+  background: linear-gradient(to right, rgba(0,0,0,0.35), rgba(0,0,0,0));
+}
+
 .insculpt-content {
   grid-column: 2;
-  justify-self: center;
-  width: min(48rem, calc(100% - var(--services-gap) - var(--services-gap-right)));
-  padding-left: var(--services-gap);
-  padding-right: var(--services-gap-right);
-  text-align: center;
   color: #1a1a1a;
 }
 
-/* Insculpt Chair Section - Similar style to Insculpt */
 .insculpt-chair-section {
   background: #a89d91;
   --services-gap: clamp(16px, 4vw, 64px);
   --services-gap-right: clamp(8px, 2vw, 32px);
-  /* Shared image/overlay variables */
-  --image-left: auto;
-  --image-right: 0;
-  --image-width: 50%;
-  --image-url: url('/pictures/Insculpt-chair.png');
-  --overlay-gradient: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0));
-  --overlay-small: rgba(0, 0, 0, 0.6);
 }
 
-/* Insculpt Chair: image right by default */
+.insculpt-chair-section .image-container {
+  left: auto;
+  right: 0;
+}
+
+.insculpt-chair-section .overlay {
+  background: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0));
+}
+
 .insculpt-chair-content {
   grid-column: 1;
-  justify-self: center;
-  width: min(48rem, calc(100% - var(--services-gap) - var(--services-gap-right)));
-  padding-left: var(--services-gap);
-  padding-right: var(--services-gap-right);
-  text-align: center;
   color: #1a1a1a;
 }
 
@@ -218,31 +194,22 @@ body {
   background: #2f2011;
   --services-gap: clamp(16px, 4vw, 64px);
   --services-gap-right: clamp(8px, 2vw, 32px);
-  /* Shared image/overlay variables */
-  --image-left: auto;
-  --image-right: 0;
-  --image-width: 50%;
-  --image-url: url('/pictures/cellu-m6-alliance.jpg');
-  --overlay-gradient: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0));
-  --overlay-small: rgba(0, 0, 0, 0.6);
 }
 
-/* Make LPG image more zoomed in */
-/* .lpg-section::before {
-  background-size: 140%;
-  background-position: center;
-} */
+.lpg-section .image-container {
+  left: auto;
+  right: 0;
+}
 
+.lpg-section .overlay {
+  background: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0));
+}
 
 .lpg-content {
   grid-column: 1;
-  justify-self: center;
-  width: min(48rem, calc(100% - var(--services-gap) - var(--services-gap-right)));
-  padding-left: var(--services-gap-right);
-  padding-right: var(--services-gap);
-  text-align: center;
   color: #ffffff;
 }
+
 .hero-video {
   position: absolute;
   top: 0;
@@ -284,14 +251,9 @@ body {
   text-align: center;
 }
 
-/* LPG content uses mirrored padding to balance spacing when on the left */
-.lpg-content.split-content {
-  padding-left: var(--services-gap-right);
-  padding-right: var(--services-gap);
-}
-
-/* Insculpt Chair content also on the left — mirror padding the same way */
-.insculpt-chair-content.split-content {
+/* Mirrored padding for content on the left */
+.lpg-content,
+.insculpt-chair-content {
   padding-left: var(--services-gap-right);
   padding-right: var(--services-gap);
 }
@@ -304,25 +266,29 @@ body {
     margin: 0 auto;
     width: min(40rem, calc(100% - 2rem));
     padding: 2rem 1rem;
-    color: #ffffff;
+    color: #ffffff !important; /* Ensure text is white on mobile */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
   }
 }
 
-
-/* (Removed in favor of unified .split-content mobile rules) */
-
-
 /* Image on the right variant */
-.insculpt-section.image-right, .services-section.image-right { --image-left: auto; --image-right: 0; --overlay-gradient: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0)); }
-.insculpt-section.image-right .insculpt-content, .services-section.image-right .services-content { grid-column: 1; }
+.image-right .image-container {
+  left: auto;
+  right: 0;
+}
+
+.image-right .overlay {
+   background: linear-gradient(to left, rgba(0,0,0,0.35), rgba(0,0,0,0));
+}
+
+.image-right .split-content {
+  grid-column: 1;
+}
 
 /* Desktop: when text overlays the image side (image-right), use white for contrast */
 @media (min-width: 769px) {
-  .image-section.image-right .split-content {
+  .image-right .split-content {
     color: #ffffff;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
   }
 }
-
-/* (Removed in favor of unified .split-content mobile rules) */
-
