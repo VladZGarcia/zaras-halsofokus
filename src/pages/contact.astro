@@ -199,7 +199,18 @@ import Layout from "../layouts/Layout.astro";
           body: formData,
         });
 
-        const result = await response.json();
+        // Parse JSON safely — if server returns HTML/error page, show status instead
+        let result: { success?: boolean; message?: string; error?: string } =
+          {};
+        const contentType = response.headers.get("content-type") || "";
+        if (contentType.includes("application/json")) {
+          result = await response.json();
+        } else {
+          // Non-JSON response (e.g. Cloudflare HTML error page)
+          result = {
+            error: `Serverfel (${response.status}). Kontrollera att sidan är korrekt driftsatt.`,
+          };
+        }
 
         if (response.ok && result.success) {
           // Success
@@ -214,15 +225,16 @@ import Layout from "../layouts/Layout.astro";
           messageDiv.className =
             "mt-4 p-4 rounded-lg bg-red-500/20 border border-red-500/40 text-red-100 text-center";
           messageDiv.textContent =
-            result.error || "Ett fel uppstod. Försök igen.";
+            result.error ||
+            `Fel ${response.status}: Kunde inte skicka meddelandet.`;
           messageDiv.classList.remove("hidden");
         }
       } catch (error) {
-        // Network error
+        // Network error or JSON parse failure
+        console.error("Contact form error:", error);
         messageDiv.className =
           "mt-4 p-4 rounded-lg bg-red-500/20 border border-red-500/40 text-red-100 text-center";
-        messageDiv.textContent =
-          "Kunde inte skicka meddelandet. Kontrollera din internetanslutning.";
+        messageDiv.textContent = `Nätverksfel: ${error instanceof Error ? error.message : "Okänt fel"}. Kontrollera konsolen (F12) för detaljer.`;
         messageDiv.classList.remove("hidden");
       } finally {
         // Re-enable button
