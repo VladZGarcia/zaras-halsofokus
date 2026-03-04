@@ -10,7 +10,7 @@ import Layout from "../layouts/Layout.astro";
   <section class="relative under-header">
     <div
       class="absolute inset-0 bg-cover bg-center"
-      style="background-image: url('/pictures/soffa-klocka.JPG');"
+      style="background-image: url('/pictures/soffa-klocka.webp');"
     >
     </div>
     <div class="absolute inset-0 bg-black/50"></div>
@@ -27,60 +27,76 @@ import Layout from "../layouts/Layout.astro";
 
   <!-- Story section -->
   <section class="bg-[#bfb6ad] py-16 md:py-24">
-    <div class="max-w-3xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-6">
       <h2
         class="text-3xl md:text-4xl font-bold text-[#2f2011] mb-8 text-center"
       >
         Vår historia
       </h2>
-      <div
-        class="space-y-6 text-[#2f2011]/85 text-base md:text-lg leading-relaxed"
-      >
-        <p>
-          Under år 2021 tog Zara det betydelsefulla steget att grunda företaget
-          Zaras Hälsofokus. Denna uppstart föddes ur hennes personliga
-          erfarenhet av att uppleva en påtaglig förbättring i sin livskvalitet
-          som en direkt konsekvens av LPG-behandling. Denna banbrytande metod
-          för skönhets- och hälsovård spelade en avgörande roll i hennes liv och
-          inspirerade henne att dela denna positiva upplevelse med andra.
-        </p>
-        <p>
-          LPG-behandling, även känd som Endermologie, har visat sig vara en
-          effektiv teknik för att öka välmåendet, minska celluliter, förbättra
-          cirkulationen och främja lymfatisk dränering. Zara upplevde dessa
-          fördelar för första gången och fann att det inte bara förbättrade
-          hennes fysiska välmående utan även hennes självförtroende och
-          livskvalitet.
-        </p>
-        <p>
-          Med sitt företag, Zaras Hälsofokus, strävar Zara efter att dela
-          fördelarna av LPG-behandling med andra och erbjuda dem en möjlighet
-          att förbättra sitt utseende och välmående. Genom att fokusera på
-          hälsa, välbefinnande och skönhet har Zara skapat en plattform som inte
-          bara syftar till att förändra människors yttre, utan också att stärka
-          deras inre självförtroende och självkänsla. Hennes personliga
-          erfarenhet och passion för LPG-behandling har drivit henne att dela
-          denna metod med andra och inspirera en hälsosammare och självsäkrare
-          livsstil.
-        </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-start">
+        <div
+          class="space-y-6 text-[#2f2011]/85 text-base md:text-lg leading-relaxed"
+        >
+          <p>
+            Under år 2021 tog Zara det betydelsefulla steget att grunda
+            företaget Zaras Hälsofokus. Denna uppstart föddes ur hennes
+            personliga erfarenhet av att uppleva en påtaglig förbättring i sin
+            livskvalitet som en direkt konsekvens av LPG-behandling. Denna
+            banbrytande metod för skönhets- och hälsovård spelade en avgörande
+            roll i hennes liv och inspirerade henne att dela denna positiva
+            upplevelse med andra.
+          </p>
+          <p>
+            LPG-behandling, även känd som Endermologie, har visat sig vara en
+            effektiv teknik för att öka välmåendet, minska celluliter, förbättra
+            cirkulationen och främja lymfatisk dränering. Zara upplevde dessa
+            fördelar för första gången och fann att det inte bara förbättrade
+            hennes fysiska välmående utan även hennes självförtroende och
+            livskvalitet.
+          </p>
+          <p>
+            Med sitt företag, Zaras Hälsofokus, strävar Zara efter att dela
+            fördelarna av LPG-behandling med andra och erbjuda dem en möjlighet
+            att förbättra sitt utseende och välmående. Genom att fokusera på
+            hälsa, välbefinnande och skönhet har Zara skapat en plattform som
+            inte bara syftar till att förändra människors yttre, utan också att
+            stärka deras inre självförtroende och självkänsla. Hennes personliga
+            erfarenhet och passion för LPG-behandling har drivit henne att dela
+            denna metod med andra och inspirera en hälsosammare och självsäkrare
+            livsstil.
+          </p>
+        </div>
+        <div
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-[#2f2011]/15 md:sticky md:top-28"
+        >
+          <div class="h-full max-h-160 overflow-hidden">
+            <img
+              src="/pictures/zarajock.webp"
+              alt="Zara och Jock"
+              class="w-full h-full object-cover"
+              style="object-position: center 18%;"
+              loading="lazy"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Team section -->
   <section class="bg-[#a89d91] py-16 md:py-24">
-    <div class="max-w-5xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12">
         Möt teamet
       </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Zara -->
         <div
           class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
         >
           <div class="h-72 overflow-hidden">
             <img
-              src="/pictures/Zara.jpg"
+              src="/pictures/Zara.webp"
               alt="Zara"
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               style="object-position: center 50%;"
@@ -92,39 +108,55 @@ import Layout from "../layouts/Layout.astro";
           </div>
         </div>
 
-        <!-- Zara & Jock -->
-        <div
-          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
-        >
-          <div class="h-72 overflow-hidden">
-            <img
-              src="/pictures/zarajock.jpg"
-              alt="Zara och Jock"
-              class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
-              style="object-position: center 10%;"
-            />
-          </div>
-          <div class="p-5 text-center">
-            <h3 class="text-xl font-semibold text-white mb-1">
-              Zara &amp; Jock
-            </h3>
-            <p class="text-white/70 text-sm">Teamet</p>
-          </div>
-        </div>
-
         <!-- Jock -->
         <div
           class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
         >
           <div class="h-72 overflow-hidden">
             <img
-              src="/pictures/jock.jpg"
+              src="/pictures/jock.webp"
               alt="Jock"
               class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
             />
           </div>
           <div class="p-5 text-center">
             <h3 class="text-xl font-semibold text-white mb-1">Jock</h3>
+            <p class="text-white/70 text-sm">Behandlare</p>
+          </div>
+        </div>
+
+        <!-- Vani -->
+        <div
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
+        >
+          <div class="h-72 overflow-hidden">
+            <img
+              src="/pictures/Vani.jpeg"
+              alt="Vani"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              style="object-position: center 50%;"
+            />
+          </div>
+          <div class="p-5 text-center">
+            <h3 class="text-xl font-semibold text-white mb-1">Vani</h3>
+            <p class="text-white/70 text-sm">Behandlare</p>
+          </div>
+        </div>
+
+        <!-- Nina -->
+        <div
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
+        >
+          <div class="h-72 overflow-hidden">
+            <img
+              src="/pictures/Nina.jpeg"
+              alt="Nina"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              style="object-position: center 50%;"
+            />
+          </div>
+          <div class="p-5 text-center">
+            <h3 class="text-xl font-semibold text-white mb-1">Nina</h3>
             <p class="text-white/70 text-sm">Behandlare</p>
           </div>
         </div>
