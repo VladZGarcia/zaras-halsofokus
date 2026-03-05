@@ -13,6 +13,7 @@
     "@midudev/tailwind-animations": "^1.0.1",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.17.1",
+    "astro-social-share": "^2.2.0",
     "tailwind-animations": "^1.0.1",
     "tailwindcss": "^4.1.18"
   },
