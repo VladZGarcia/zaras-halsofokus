@@ -6,6 +6,118 @@ import Layout from "../layouts/Layout.astro";
   title="Om oss - Zaras Hälsofokus | Professionella behandlingar i Stockholm"
   description="Lär känna Zaras Hälsofokus. Vi erbjuder LPG, Insculpt och Insculpt Chair med fokus på individanpassade behandlingar och välmående. Välkommen till vår klinik i Stockholm."
 >
+  <style>
+    .team-card {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 50;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 1rem;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header {
+      position: relative;
+      background: #a89d91;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .modal-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .modal-body {
+      padding: 2rem;
+      color: #2f2011;
+    }
+
+    .modal-body h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .modal-body .role {
+      text-align: center;
+      color: #a89d91;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-body p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: white;
+      border: none;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: background 0.2s;
+    }
+
+    .modal-close:hover {
+      background: #f0f0f0;
+    }
+  </style>
+
   <!-- Hero -->
   <section class="relative under-header">
     <div
@@ -92,7 +204,8 @@ import Layout from "../layouts/Layout.astro";
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Zara -->
         <div
-          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20 team-card"
+          onclick="openModal('zara')"
         >
           <div class="h-72 overflow-hidden">
             <img
@@ -112,7 +225,8 @@ import Layout from "../layouts/Layout.astro";
 
         <!-- Jock -->
         <div
-          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20 team-card"
+          onclick="openModal('jock')"
         >
           <div class="h-72 overflow-hidden">
             <img
@@ -129,7 +243,8 @@ import Layout from "../layouts/Layout.astro";
 
         <!-- Vani -->
         <div
-          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20 team-card"
+          onclick="openModal('vani')"
         >
           <div class="h-72 overflow-hidden">
             <img
@@ -147,7 +262,8 @@ import Layout from "../layouts/Layout.astro";
 
         <!-- Nina -->
         <div
-          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20 team-card"
+          onclick="openModal('nina')"
         >
           <div class="h-72 overflow-hidden">
             <img
@@ -165,6 +281,136 @@ import Layout from "../layouts/Layout.astro";
       </div>
     </div>
   </section>
+
+  <!-- Modals -->
+  <!-- Zara Modal -->
+  <div id="zara-modal" class="modal" onclick="closeModal('zara')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          class="modal-close"
+          onclick="(evt) => { evt.stopPropagation(); closeModal('zara'); }"
+          >×</button
+        >
+        <img
+          src="/pictures/Zara.webp"
+          alt="Zara"
+          class="modal-image"
+          style="object-position: center 50%;"
+        />
+      </div>
+      <div class="modal-body">
+        <h3>Zara</h3>
+        <p class="role">
+          Grundare & Diplomerad LPG Terapeut integral och Allians
+        </p>
+        <p>
+          Zara är grundaren av Zaras Hälsofokus och en passionerad LPG-terapeut.
+          Med flera år av erfarenhet och diplomerad utbildning från både
+          Integral och Allians, dedikerar hon sig till att hjälpa sina klienter
+          att förbättra sin hälsa och välbefinnande genom LPG-behandlingar.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Jock Modal -->
+  <div id="jock-modal" class="modal" onclick="closeModal('jock')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          class="modal-close"
+          onclick="(evt) => { evt.stopPropagation(); closeModal('jock'); }"
+          >×</button
+        >
+        <img
+          src="/pictures/jock.webp"
+          alt="Jock"
+          class="modal-image"
+          style="object-position: center top;"
+        />
+      </div>
+      <div class="modal-body">
+        <h3>Jock</h3>
+        <p class="role">LPG Terapeut Allians</p>
+        <p>
+          Jock är en erfaren LPG-terapeut med diplomerad utbildning från
+          Allians. Med stort engagemang och kunskap om LPG-behandlingens
+          fördelar arbetar Jock för att hjälpa klienter att nå sina hälso- och
+          skönhetsmål.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vani Modal -->
+  <div id="vani-modal" class="modal" onclick="closeModal('vani')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          class="modal-close"
+          onclick="(evt) => { evt.stopPropagation(); closeModal('vani'); }"
+          >×</button
+        >
+        <img
+          src="/pictures/Vani.webp"
+          alt="Vani"
+          class="modal-image"
+          style="object-position: center 50%;"
+        />
+      </div>
+      <div class="modal-body">
+        <h3>Vani</h3>
+        <p class="role">Auktoriserad Hud & Spaterapeut</p>
+        <p>
+          Vani är en auktoriserad hud- och spaterapeut med omfattande utbildning
+          inom hudvård och spa-behandlingar. Med dedikation till klienternas
+          välbefinnande erbjuder Vani professionella behandlingar för att njuta
+          av både entspanning och skönhet.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nina Modal -->
+  <div id="nina-modal" class="modal" onclick="closeModal('nina')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          class="modal-close"
+          onclick="(evt) => { evt.stopPropagation(); closeModal('nina'); }"
+          >×</button
+        >
+        <img
+          src="/pictures/Nina.webp"
+          alt="Nina"
+          class="modal-image"
+          style="object-position: center 20%;"
+        />
+      </div>
+      <div class="modal-body">
+        <h3>Nina</h3>
+        <p class="role">Nagelteknolog och vaxterapeut</p>
+        <p>
+          Nina på Ninas naglar och vaxning skapar fantastiskt fina naglar för
+          alla tillfällen. Många av hennes kunder har varit med henne sedan hon
+          startade sitt företag för 10 år sedan!
+        </p>
+        <p>
+          Våren 2021 utbildade sig Nina även till vaxterapeut och idag hittar du
+          också vaxning bland hennes tjänster. Kika in på
+          <a
+            href="https://www.bokadirekt.se/places/ninas-naglar-&-vaxning-hos-zaras-h%C3%A4lsofokus-23493"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ninas Bokadirekt
+          </a>
+          för att se hennes samtliga tjänster och läsa mer.
+        </p>
+      </div>
+    </div>
+  </div>
 
   <!-- CTA -->
   <section class="bg-[#bfb6ad] py-16">
@@ -192,3 +438,34 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 </Layout>
+
+<script is:inline>
+  function openModal(personId) {
+    const modalId = `${personId}-modal`;
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+  }
+
+  function closeModal(personId) {
+    const modalId = `${personId}-modal`;
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  }
+
+  // Close modal when pressing Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      const modals = document.querySelectorAll(".modal.active");
+      modals.forEach((modal) => {
+        modal.classList.remove("active");
+      });
+      document.body.style.overflow = "auto";
+    }
+  });
+</script>
