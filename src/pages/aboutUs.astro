@@ -6,11 +6,154 @@ import Layout from "../layouts/Layout.astro";
   title="Om oss - Zaras Hälsofokus | Professionella behandlingar i Stockholm"
   description="Lär känna Zaras Hälsofokus. Vi erbjuder LPG, Insculpt och Insculpt Chair med fokus på individanpassade behandlingar och välmående. Välkommen till vår klinik i Stockholm."
 >
+  <style>
+    .team-card {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 50;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 1rem;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header {
+      position: relative;
+      background: #a89d91;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .modal-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .modal-body {
+      padding: 2rem;
+      color: #2f2011;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-body h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .modal-body .role {
+      text-align: center;
+      color: #a89d91;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-body p {
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .modal-body a {
+      color: #e6a35f;
+      text-decoration: underline;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .modal-body a:hover {
+      color: #d4934a;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: white;
+      border: none;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      transition: background 0.2s;
+    }
+
+    .modal-close:hover {
+      background: #f0f0f0;
+    }
+
+    .modal-booking-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      margin-left: auto;
+      padding: 0.75rem 1.5rem;
+      background: #2f2011;
+      color: white;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: background 0.2s;
+      text-align: center;
+    }
+
+    .modal-booking-btn:hover {
+      background: #1f1408;
+    }
+  </style>
+
   <!-- Hero -->
   <section class="relative under-header">
     <div
       class="absolute inset-0 bg-cover bg-center"
-      style="background-image: url('/pictures/soffa-klocka.JPG');"
+      style="background-image: url('/pictures/soffa-klocka.webp');"
     >
     </div>
     <div class="absolute inset-0 bg-black/50"></div>
@@ -27,60 +170,77 @@ import Layout from "../layouts/Layout.astro";
 
   <!-- Story section -->
   <section class="bg-[#bfb6ad] py-16 md:py-24">
-    <div class="max-w-3xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-6">
       <h2
         class="text-3xl md:text-4xl font-bold text-[#2f2011] mb-8 text-center"
       >
         Vår historia
       </h2>
-      <div
-        class="space-y-6 text-[#2f2011]/85 text-base md:text-lg leading-relaxed"
-      >
-        <p>
-          Under år 2021 tog Zara det betydelsefulla steget att grunda företaget
-          Zaras Hälsofokus. Denna uppstart föddes ur hennes personliga
-          erfarenhet av att uppleva en påtaglig förbättring i sin livskvalitet
-          som en direkt konsekvens av LPG-behandling. Denna banbrytande metod
-          för skönhets- och hälsovård spelade en avgörande roll i hennes liv och
-          inspirerade henne att dela denna positiva upplevelse med andra.
-        </p>
-        <p>
-          LPG-behandling, även känd som Endermologie, har visat sig vara en
-          effektiv teknik för att öka välmåendet, minska celluliter, förbättra
-          cirkulationen och främja lymfatisk dränering. Zara upplevde dessa
-          fördelar för första gången och fann att det inte bara förbättrade
-          hennes fysiska välmående utan även hennes självförtroende och
-          livskvalitet.
-        </p>
-        <p>
-          Med sitt företag, Zaras Hälsofokus, strävar Zara efter att dela
-          fördelarna av LPG-behandling med andra och erbjuda dem en möjlighet
-          att förbättra sitt utseende och välmående. Genom att fokusera på
-          hälsa, välbefinnande och skönhet har Zara skapat en plattform som inte
-          bara syftar till att förändra människors yttre, utan också att stärka
-          deras inre självförtroende och självkänsla. Hennes personliga
-          erfarenhet och passion för LPG-behandling har drivit henne att dela
-          denna metod med andra och inspirera en hälsosammare och självsäkrare
-          livsstil.
-        </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-start">
+        <div
+          class="space-y-6 text-[#2f2011]/85 text-base md:text-lg leading-relaxed"
+        >
+          <p>
+            Under år 2021 tog Zara det betydelsefulla steget att grunda
+            företaget Zaras Hälsofokus. Denna uppstart föddes ur hennes
+            personliga erfarenhet av att uppleva en påtaglig förbättring i sin
+            livskvalitet som en direkt konsekvens av LPG-behandling. Denna
+            banbrytande metod för skönhets- och hälsovård spelade en avgörande
+            roll i hennes liv och inspirerade henne att dela denna positiva
+            upplevelse med andra.
+          </p>
+          <p>
+            LPG-behandling, även känd som Endermologie, har visat sig vara en
+            effektiv teknik för att öka välmåendet, minska celluliter, förbättra
+            cirkulationen och främja lymfatisk dränering. Zara upplevde dessa
+            fördelar för första gången och fann att det inte bara förbättrade
+            hennes fysiska välmående utan även hennes självförtroende och
+            livskvalitet.
+          </p>
+          <p>
+            Med sitt företag, Zaras Hälsofokus, strävar Zara efter att dela
+            fördelarna av LPG-behandling med andra och erbjuda dem en möjlighet
+            att förbättra sitt utseende och välmående. Genom att fokusera på
+            hälsa, välbefinnande och skönhet har Zara skapat en plattform som
+            inte bara syftar till att förändra människors yttre, utan också att
+            stärka deras inre självförtroende och självkänsla. Hennes personliga
+            erfarenhet och passion för LPG-behandling har drivit henne att dela
+            denna metod med andra och inspirera en hälsosammare och självsäkrare
+            livsstil.
+          </p>
+        </div>
+        <div
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-[#2f2011]/15 md:sticky md:top-28"
+        >
+          <div class="h-full max-h-160 overflow-hidden">
+            <img
+              src="/pictures/zarajock.webp"
+              alt="Zara och Jock"
+              class="w-full h-full object-cover"
+              style="object-position: center 18%;"
+              loading="lazy"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Team section -->
   <section class="bg-[#a89d91] py-16 md:py-24">
-    <div class="max-w-5xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12">
         Möt teamet
       </h2>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         <!-- Zara -->
         <div
-          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20 team-card"
+          onclick="openModal('zara')"
         >
           <div class="h-72 overflow-hidden">
             <img
-              src="/pictures/Zara.jpg"
+              src="/pictures/Zara.webp"
               alt="Zara"
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               style="object-position: center 50%;"
@@ -88,49 +248,236 @@ import Layout from "../layouts/Layout.astro";
           </div>
           <div class="p-5 text-center">
             <h3 class="text-xl font-semibold text-white mb-1">Zara</h3>
-            <p class="text-white/70 text-sm">Grundare &amp; Behandlare</p>
-          </div>
-        </div>
-
-        <!-- Zara & Jock -->
-        <div
-          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
-        >
-          <div class="h-72 overflow-hidden">
-            <img
-              src="/pictures/zarajock.jpg"
-              alt="Zara och Jock"
-              class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500"
-              style="object-position: center 10%;"
-            />
-          </div>
-          <div class="p-5 text-center">
-            <h3 class="text-xl font-semibold text-white mb-1">
-              Zara &amp; Jock
-            </h3>
-            <p class="text-white/70 text-sm">Teamet</p>
+            <p class="text-white/70 text-sm">
+              Grundare &amp; Diplomerad LPG Terapeut integral och Allians
+            </p>
           </div>
         </div>
 
         <!-- Jock -->
         <div
-          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20"
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20 team-card"
+          onclick="openModal('jock')"
         >
           <div class="h-72 overflow-hidden">
             <img
-              src="/pictures/jock.jpg"
+              src="/pictures/jock.webp"
               alt="Jock"
               class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
             />
           </div>
           <div class="p-5 text-center">
             <h3 class="text-xl font-semibold text-white mb-1">Jock</h3>
-            <p class="text-white/70 text-sm">Behandlare</p>
+            <p class="text-white/70 text-sm">LPG Terapeut Allians</p>
+          </div>
+        </div>
+
+        <!-- Vani -->
+        <div
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20 team-card"
+          onclick="openModal('vani')"
+        >
+          <div class="h-72 overflow-hidden">
+            <img
+              src="/pictures/Vani.webp"
+              alt="Vani"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              style="object-position: center 50%;"
+            />
+          </div>
+          <div class="p-5 text-center">
+            <h3 class="text-xl font-semibold text-white mb-1">Vani</h3>
+            <p class="text-white/70 text-sm">Auktoriserad Hud & Spaterapeut</p>
+          </div>
+        </div>
+
+        <!-- Nina -->
+        <div
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20 team-card"
+          onclick="openModal('nina')"
+        >
+          <div class="h-72 overflow-hidden">
+            <img
+              src="/pictures/Nina.webp"
+              alt="Nina"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              style="object-position: center 20%;"
+            />
+          </div>
+          <div class="p-5 text-center">
+            <h3 class="text-xl font-semibold text-white mb-1">Nina</h3>
+            <p class="text-white/70 text-sm">Nagelteknolog och vaxterapeut</p>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Modals -->
+  <!-- Zara Modal -->
+  <div id="zara-modal" class="modal" onclick="closeModal('zara')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          class="modal-close"
+          onclick="(evt) => { evt.stopPropagation(); closeModal('zara'); }"
+          >×</button
+        >
+        <img
+          src="/pictures/Zara.webp"
+          alt="Zara"
+          class="modal-image"
+          style="object-position: center 50%;"
+        />
+      </div>
+      <div class="modal-body">
+        <h3>Zara</h3>
+        <p class="role">
+          Grundare & Diplomerad LPG Terapeut integral och Allians
+        </p>
+        <p>
+          Zara är grundaren av Zaras Hälsofokus och en passionerad LPG-terapeut.
+          Med flera år av erfarenhet och diplomerad utbildning från både
+          Integral och Allians, dedikerar hon sig till att hjälpa sina klienter
+          att förbättra sin hälsa och välbefinnande genom LPG-behandlingar.
+        </p>
+        <a
+          href="https://www.bokadirekt.se/places/zaras-halsofokus-40836"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="modal-booking-btn"
+          onclick="(evt) => evt.stopPropagation()"
+        >
+          Boka behandling
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Jock Modal -->
+  <div id="jock-modal" class="modal" onclick="closeModal('jock')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          class="modal-close"
+          onclick="(evt) => { evt.stopPropagation(); closeModal('jock'); }"
+          >×</button
+        >
+        <img
+          src="/pictures/jock.webp"
+          alt="Jock"
+          class="modal-image"
+          style="object-position: center top;"
+        />
+      </div>
+      <div class="modal-body">
+        <h3>Jock</h3>
+        <p class="role">LPG Terapeut Allians</p>
+        <p>
+          Jock är en erfaren LPG-terapeut med diplomerad utbildning från
+          Allians. Med stort engagemang och kunskap om LPG-behandlingens
+          fördelar arbetar Jock för att hjälpa klienter att nå sina hälso- och
+          skönhetsmål.
+        </p>
+        <a
+          href="https://www.bokadirekt.se/places/zaras-halsofokus-40836"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="modal-booking-btn"
+          onclick="(evt) => evt.stopPropagation()"
+        >
+          Boka behandling
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vani Modal -->
+  <div id="vani-modal" class="modal" onclick="closeModal('vani')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          class="modal-close"
+          onclick="(evt) => { evt.stopPropagation(); closeModal('vani'); }"
+          >×</button
+        >
+        <img
+          src="/pictures/Vani.webp"
+          alt="Vani"
+          class="modal-image"
+          style="object-position: center 50%;"
+        />
+      </div>
+      <div class="modal-body">
+        <h3>Vani</h3>
+        <p class="role">Auktoriserad Hud & Spaterapeut</p>
+        <p>
+          Vani på Vanichaya Beauty Care har nyligen startat upp sitt företag
+          efter många år i branschen. Vani är utbildad hudterapeut och medlem i
+          SHR, och har ett brett utbud av tjänster, bl.a. ansiktsbehandlingar,
+          pedikyr, lash & brow lift, frans och brynfärg, samt sockervaxning!
+          Vani befinner sig på salongen onsdagar-söndagar.
+        </p>
+        <a
+          href="https://vanichayabeautycare.se/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          www.vanichayabeautycare.se
+        </a>
+        <a
+          href="https://www.bokadirekt.se/places/vanichaya-beauty-care-47259"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="modal-booking-btn"
+          onclick="(evt) => evt.stopPropagation()"
+        >
+          Boka behandling
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nina Modal -->
+  <div id="nina-modal" class="modal" onclick="closeModal('nina')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          class="modal-close"
+          onclick="(evt) => { evt.stopPropagation(); closeModal('nina'); }"
+          >×</button
+        >
+        <img
+          src="/pictures/Nina.webp"
+          alt="Nina"
+          class="modal-image"
+          style="object-position: center 20%;"
+        />
+      </div>
+      <div class="modal-body">
+        <h3>Nina</h3>
+        <p class="role">Nagelteknolog och vaxterapeut</p>
+        <p>
+          Nina på Ninas naglar och vaxning skapar fantastiskt fina naglar för
+          alla tillfällen. Många av hennes kunder har varit med henne sedan hon
+          startade sitt företag för 10 år sedan!
+        </p>
+        <p>
+          Våren 2021 utbildade sig Nina även till vaxterapeut och idag hittar du
+          också vaxning bland hennes tjänster.
+        </p>
+        <a
+          href="https://www.bokadirekt.se/places/ninas-naglar-&-vaxning-hos-zaras-h%C3%A4lsofokus-23493"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="modal-booking-btn"
+          onclick="(evt) => evt.stopPropagation()"
+        >
+          Boka behandling
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- CTA -->
   <section class="bg-[#bfb6ad] py-16">
@@ -158,3 +505,34 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 </Layout>
+
+<script is:inline>
+  function openModal(personId) {
+    const modalId = `${personId}-modal`;
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+  }
+
+  function closeModal(personId) {
+    const modalId = `${personId}-modal`;
+    const modal = document.getElementById(modalId);
+    if (modal) {
+      modal.classList.remove("active");
+      document.body.style.overflow = "auto";
+    }
+  }
+
+  // Close modal when pressing Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      const modals = document.querySelectorAll(".modal.active");
+      modals.forEach((modal) => {
+        modal.classList.remove("active");
+      });
+      document.body.style.overflow = "auto";
+    }
+  });
+</script>

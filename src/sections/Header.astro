@@ -1,5 +1,8 @@
 ---
 import "../styles/hamburger.css";
+import { FacebookShareButton, SocialShare } from "astro-social-share";
+
+const BUTTONS = [FacebookShareButton];
 ---
 
 <script>
@@ -207,7 +210,8 @@ import "../styles/hamburger.css";
           <li><a href="/#insculpt" class="hover:text-gray-400">Insculpt</a></li>
           <li>
             <a href="/#insculpt-chair" class="hover:text-gray-400"
-              >Insculpt Chair</a>
+              >Insculpt Chair</a
+            >
           </li>
           <li><a href="/aboutUs" class="hover:text-gray-400">Om oss</a></li>
           <li><a href="/contact" class="hover:text-gray-400">Kontakt</a></li>
@@ -218,5 +222,16 @@ import "../styles/hamburger.css";
         </ul>
       </nav>
     </div>
+   <!--  <div
+      class="fixed bottom-3 md:bottom-4 z-40 opacity-35 hover:opacity-60 transition-opacity"
+      style="left: max(1rem, calc((100vw - 1280px) / 2 + 1rem));"
+    >
+      <SocialShare
+        url="https://www.zarashalsofokus.com"
+        title="Zaras Hälsofokus - Din väg till välmående"
+        description="Upptäck våra skräddarsydda behandlingar och boka din tid idag!"
+        buttons={BUTTONS}
+      />
+    </div> -->
   </div>
 </header>
