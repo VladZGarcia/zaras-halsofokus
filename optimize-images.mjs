@@ -9,11 +9,11 @@ const quality = 80;
 async function optimizeImages() {
   console.log('Starting image optimization...');
 
-  // Find all jpg, jpeg, and png images
-  const images = await glob(`${imageDir}/**/*.{jpg,jpeg,png,JPG,JPEG,PNG}`);
+  // Find all jpg, jpeg, png, and avif images
+  const images = await glob(`${imageDir}/**/*.{jpg,jpeg,png,JPG,JPEG,PNG,avif,AVIF}`);
 
   if (images.length === 0) {
-    console.log('No new JPG, JPEG, or PNG images to optimize.');
+    console.log('No new JPG, JPEG, PNG, or AVIF images to optimize.');
   } else {
     for (const imagePath of images) {
       const parsedPath = path.parse(imagePath);
