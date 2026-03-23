@@ -1,8 +1,11 @@
 ---
 import "../styles/hamburger.css";
-import { FacebookShareButton, SocialShare } from "astro-social-share";
 
-const BUTTONS = [FacebookShareButton];
+const SOCIAL_LINKS = {
+  facebook: "https://www.facebook.com/zarashalsofokus",
+  instagram: "https://www.instagram.com/zarashalsofokus",
+  tiktok: "https://www.tiktok.com/@zarashalsofokus",
+};
 ---
 
 <script>
@@ -222,16 +225,59 @@ const BUTTONS = [FacebookShareButton];
         </ul>
       </nav>
     </div>
-   <!--  <div
-      class="fixed bottom-3 md:bottom-4 z-40 opacity-35 hover:opacity-60 transition-opacity"
-      style="left: max(1rem, calc((100vw - 1280px) / 2 + 1rem));"
+    <!-- Social Media Watermarks -->
+    <div
+      class="fixed bottom-4 md:bottom-6 xl:bottom-8 left-0 right-0 z-40 opacity-30 hover:opacity-55 transition-opacity"
+      aria-hidden="true"
     >
-      <SocialShare
-        url="https://www.zarashalsofokus.com"
-        title="Zaras Hälsofokus - Din väg till välmående"
-        description="Upptäck våra skräddarsydda behandlingar och boka din tid idag!"
-        buttons={BUTTONS}
-      />
-    </div> -->
+      <div class="container mx-auto px-4">
+        <div
+          class="inline-flex items-center gap-4 rounded-full bg-black/15 px-3 py-2 backdrop-blur-sm"
+        >
+          <a
+            href={SOCIAL_LINKS.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Besök Zaras Hälsofokus på Facebook"
+            class="inline-flex"
+          >
+            <img
+              src="/pictures/Socials/facebook-logo.svg"
+              alt="Facebook watermark"
+              class="h-5 w-5 md:h-6 md:w-6 object-contain brightness-0 invert"
+              loading="lazy"
+            />
+          </a>
+          <a
+            href={SOCIAL_LINKS.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Besök Zaras Hälsofokus på Instagram"
+            class="inline-flex"
+          >
+            <img
+              src="/pictures/Socials/instagram-logo.svg"
+              alt="Instagram watermark"
+              class="h-5 w-5 md:h-6 md:w-6 object-contain"
+              loading="lazy"
+            />
+          </a>
+          <!-- <a
+            href={SOCIAL_LINKS.tiktok}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Besök Zaras Hälsofokus på TikTok"
+            class="inline-flex"
+          >
+            <img
+              src="/pictures/Socials/tiktok-logo.svg"
+              alt="TikTok watermark"
+              class="h-5 w-5 md:h-6 md:w-6 object-contain"
+              loading="lazy"
+            />
+          </a> -->
+        </div>
+      </div>
+    </div>
   </div>
 </header>
