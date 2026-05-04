@@ -6,7 +6,22 @@ import fs from 'fs/promises';
 const imageDir = 'public/pictures';
 const quality = 80;
 
-async function optimizeImages() {
+async function optimizeSingleImage(imagePath) {
+  const parsedPath = path.parse(imagePath);
+  const webpPath = path.join(parsedPath.dir, `${parsedPath.name}.webp`);
+
+  try {
+    console.log(`Converting ${imagePath} to WebP...`);
+    await sharp(imagePath)
+      .webp({ quality })
+      .toFile(webpPath);
+    console.log(`Successfully converted to ${webpPath}`);
+  } catch (err) {
+    console.error(`Error converting ${imagePath}:`, err);
+  }
+}
+
+async function optimizeAllImages() {
   console.log('Starting image optimization...');
 
   // Find all jpg, jpeg, png, and avif images
@@ -16,18 +31,7 @@ async function optimizeImages() {
     console.log('No new JPG, JPEG, PNG, or AVIF images to optimize.');
   } else {
     for (const imagePath of images) {
-      const parsedPath = path.parse(imagePath);
-      const webpPath = path.join(parsedPath.dir, `${parsedPath.name}.webp`);
-
-      try {
-        console.log(`Converting ${imagePath} to WebP...`);
-        await sharp(imagePath)
-          .webp({ quality })
-          .toFile(webpPath);
-        console.log(`Successfully converted to ${webpPath}`);
-      } catch (err) {
-        console.error(`Error converting ${imagePath}:`, err);
-      }
+      await optimizeSingleImage(imagePath);
     }
   }
 
@@ -54,4 +58,12 @@ async function optimizeImages() {
   console.log('Image optimization complete.');
 }
 
-optimizeImages();
+// Check for a command-line argument
+const imageToConvert = process.argv[2];
+
+if (imageToConvert) {
+  optimizeSingleImage(imageToConvert);
+} else {
+  optimizeAllImages();
+}
+
