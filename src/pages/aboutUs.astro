@@ -272,22 +272,24 @@ import Layout from "../layouts/Layout.astro";
           </div>
         </div>
 
-        <!-- Vani -->
+        <!-- Claudia -->
         <div
           class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20 team-card"
-          onclick="openModal('vani')"
+          onclick="openModal('claudia')"
         >
           <div class="h-72 overflow-hidden">
             <img
-              src="/pictures/Vani.webp"
-              alt="Vani"
+              src="/pictures/Claudia-zaras.webp"
+              alt="Claudia"
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-              style="object-position: center 50%;"
+              style="object-position: center 20%;"
             />
           </div>
           <div class="p-5 text-center">
-            <h3 class="text-xl font-semibold text-white mb-1">Vani</h3>
-            <p class="text-white/70 text-sm">Auktoriserad Hud & Spaterapeut</p>
+            <h3 class="text-xl font-semibold text-white mb-1">Claudia</h3>
+            <p class="text-white/70 text-sm">
+              diplomerad och certifierad hud -och spa terapeut och lpg trapeut.
+            </p>
           </div>
         </div>
 
@@ -307,6 +309,26 @@ import Layout from "../layouts/Layout.astro";
           <div class="p-5 text-center">
             <h3 class="text-xl font-semibold text-white mb-1">Nina</h3>
             <p class="text-white/70 text-sm">Nagelteknolog och vaxterapeut</p>
+          </div>
+        </div>
+      </div>
+      <!-- Vani Centered -->
+      <div class="mt-6 flex justify-center">
+        <div
+          class="bg-white/15 backdrop-blur-sm rounded-2xl overflow-hidden shadow-lg ring-1 ring-white/20 team-card w-full sm:w-1/2 lg:w-1/4"
+          onclick="openModal('vani')"
+        >
+          <div class="h-72 overflow-hidden">
+            <img
+              src="/pictures/Vani.webp"
+              alt="Vani"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              style="object-position: center 50%;"
+            />
+          </div>
+          <div class="p-5 text-center">
+            <h3 class="text-xl font-semibold text-white mb-1">Vani</h3>
+            <p class="text-white/70 text-sm">Auktoriserad Hud & Spaterapeut</p>
           </div>
         </div>
       </div>
@@ -378,6 +400,46 @@ import Layout from "../layouts/Layout.astro";
           Allians. Med stort engagemang och kunskap om LPG-behandlingens
           fördelar arbetar Jock för att hjälpa klienter att nå sina hälso- och
           skönhetsmål.
+        </p>
+        <a
+          href="https://www.bokadirekt.se/places/zaras-halsofokus-40836"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="modal-booking-btn"
+          onclick="(evt) => evt.stopPropagation()"
+        >
+          Boka behandling
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Claudia Modal -->
+  <div id="claudia-modal" class="modal" onclick="closeModal('claudia')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          class="modal-close"
+          onclick="(evt) => { evt.stopPropagation(); closeModal('claudia'); }"
+          >×</button
+        >
+        <img
+          src="/pictures/Claudia-zaras.webp"
+          alt="Claudia"
+          class="modal-image"
+          style="object-position: center 20%;"
+        />
+      </div>
+      <div class="modal-body">
+        <h3>Claudia</h3>
+        <p class="role">
+          Diplomerad och certifierad hud -och spa terapeut och lpg trapeut.
+        </p>
+        <p>
+          Claudia är en erfaren och certifierad hud- och spa-terapeut samt
+          LPG-terapeut. Med en passion för att hjälpa klienter att uppnå sina
+          skönhets- och hälsomål, erbjuder Claudia personligt anpassade
+          behandlingar av högsta kvalitet.
         </p>
         <a
           href="https://www.bokadirekt.se/places/zaras-halsofokus-40836"
