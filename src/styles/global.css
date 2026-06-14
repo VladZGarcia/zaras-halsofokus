@@ -57,6 +57,12 @@ body {
   scroll-padding-top: var(--header-height);
 }
 
+/* Global text wrapping for long Swedish words on small screens */
+:where(h1, h2, h3, h4, h5, h6, p, li) {
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
 
 :root {
   --header-height: 0px;
